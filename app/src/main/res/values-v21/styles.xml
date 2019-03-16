@@ -6,10 +6,13 @@
         <!--<item name="colorPrimary">@color/colorPrimary</item>-->
         <item name="colorPrimaryDark">@color/main_color</item>
         <!--<item name="colorAccent">@color/colorAccent</item>-->
-        <!--<item name="android:statusBarColor">@color/main_color</item>-->
+        <item name="android:statusBarColor">@color/main_color</item>
+        <!--<item name="android:windowTranslucentStatus">true</item>-->
         <!--去掉系统自带标题栏-->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+        <!--设置半透明虚拟键盘-->
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="fullScreen" parent="AppTheme">
@@ -26,6 +29,7 @@
         <!--<item name="android:windowTranslucentNavigation">true</item>-->
         <!--Android 5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色-->
         <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+        <!--防止布局和状态栏的信息重叠需在xml布局文件中加上 android:fitsSystemWindows=”true”-->
     </style>
 
 </resources>

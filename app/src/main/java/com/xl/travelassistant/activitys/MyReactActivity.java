@@ -1,8 +1,8 @@
-package com.xl.travelassistant;
-
-import javax.annotation.Nullable;
+package com.xl.travelassistant.activitys;
 
 import com.facebook.react.ReactActivity;
+
+import javax.annotation.Nullable;
 
 public class MyReactActivity extends ReactActivity {
     @Nullable

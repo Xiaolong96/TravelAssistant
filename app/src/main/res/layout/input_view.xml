@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/input_height"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/margin_size"
+    android:paddingRight="@dimen/margin_size"
+    >
+
+    <TextView
+        android:id="@+id/tv_phone_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&#xe768;"
+        android:textSize="@dimen/text_size_large" />
+
+    <EditText
+        android:id="@+id/et_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="请输入手机号"
+        android:background="@null"
+        android:paddingLeft="@dimen/margin_size"
+        android:paddingRight="@dimen/margin_size"
+        android:textSize="@dimen/text_size_large"/>
+
+</LinearLayout>
