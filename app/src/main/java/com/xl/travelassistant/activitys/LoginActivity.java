@@ -13,6 +13,8 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import com.xl.travelassistant.R;
+import com.xl.travelassistant.utils.UserUtils;
+import com.xl.travelassistant.views.InputView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,17 +26,31 @@ public class LoginActivity extends BaseActivity {
     private BaseUiListener mIUiListener;
     private UserInfo mUserInfo;
 
+    private InputView mInputPhone, mInputPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        initView();
         //传入参数APPID和全局Context上下文
         mTencent = Tencent.createInstance(APP_ID, LoginActivity.this.getApplicationContext());
+        mInputPhone = findViewById(R.id.input_phone);
+        mInputPassword = findViewById(R.id.input_password);
     }
 
-    private void initView() {
-        initNavBar(true, "TravelAssistant", false);
+    /**
+     * 登录
+     */
+    public void onLoginBtnClick () {
+        String phone = mInputPhone.getInputStr();
+        String password = mInputPassword.getInputStr();
+        // 验证用户输入
+        if(!UserUtils.validateLogin(this, phone, password)) {
+            return;
+        }
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     /**

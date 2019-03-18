@@ -9,12 +9,12 @@
     android:paddingRight="@dimen/margin_size"
     >
 
-    <TextView
+    <com.xl.travelassistant.views.IconView
         android:id="@+id/tv_phone_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="&#xe768;"
-        android:textSize="@dimen/text_size_large" />
+        android:text="@string/icon_phone"
+        android:textSize="@dimen/iconfont_size" />
 
     <EditText
         android:id="@+id/et_phone_number"

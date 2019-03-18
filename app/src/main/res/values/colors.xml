@@ -4,9 +4,13 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="main_color">#15db91</color>
+    <color name="main_color">#30C69D</color>
+    <color name="main_color_gray">#b8f4de</color>
 
-    <color name="white">#ffffff</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="line">#C3C3C3</color>
 
     <!--<color name="transparent_half">#a0000000</color>-->
     <!--<color name="transparent_half_orange">#a0ec6f1a</color>-->

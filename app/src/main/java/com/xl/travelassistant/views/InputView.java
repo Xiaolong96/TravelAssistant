@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.text.Html;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -66,10 +67,18 @@ public class InputView extends FrameLayout {
         mEtInput = mView.findViewById(R.id.et_phone_number);
 
 //        布局关联属性
-        mTvIcon.setText(inputIcon);
+        mTvIcon.setText(Html.fromHtml(inputIcon));
         mEtInput.setHint(inputHint);
-        mEtInput.setInputType(isPassword ? InputType.TYPE_CLASS_TEXT | InputType.TYPE_NUMBER_VARIATION_PASSWORD : InputType.TYPE_CLASS_PHONE);
+        mEtInput.setInputType(isPassword ? InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD : InputType.TYPE_CLASS_PHONE);
 
         addView(mView);
+    }
+
+    /**
+     * 返回输入内容
+     * @return
+     */
+    public String getInputStr () {
+        return mEtInput.getText().toString().trim();
     }
 }

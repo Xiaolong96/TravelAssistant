@@ -32,4 +32,13 @@
         <!--防止布局和状态栏的信息重叠需在xml布局文件中加上 android:fitsSystemWindows=”true”-->
     </style>
 
+    <!--全局通用样式-->
+    <style name="line">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">@dimen/margin_size</item>
+        <item name="android:layout_marginRight">@dimen/margin_size</item>
+        <item name="android:background">@color/line</item>
+    </style>
+
 </resources>

@@ -2,6 +2,7 @@ package com.xl.travelassistant;
 
 import android.app.Application;
 
+import com.blankj.utilcode.util.Utils;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -36,5 +37,7 @@ public class MyApplication extends Application implements ReactApplication {
     public void onCreate() {
         super.onCreate();
         SoLoader.init(this,false);
+        // 初始化引入的安卓类库
+        Utils.init(this);
     }
 }

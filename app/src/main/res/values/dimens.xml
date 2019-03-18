@@ -10,12 +10,14 @@
     <dimen name="margin_normal">12dp</dimen>
     <dimen name="margin_medium">20dp</dimen>
     <dimen name="margin_large">32dp</dimen>
-    <dimen name="margin_huge">64dp</dimen>
+    <dimen name="margin_huge">128dp</dimen>
     <dimen name="line_height">1dp</dimen>
+    <dimen name="line_width">60dp</dimen>
     <dimen name="line_litter_height">0.5dp</dimen>
 
     <!-- 字体大小 -->
     <dimen name="iconfont_size">20sp</dimen>
+    <dimen name="text_size_info">12sp</dimen>
 
     <dimen name="text_size_tiny">10sp</dimen>
     <dimen name="text_size_small">12sp</dimen>
@@ -36,7 +38,7 @@
     <dimen name="image_height_small">15dp</dimen>
     <dimen name="image_height_litter">20dp</dimen>
     <dimen name="image_height">30dp</dimen>
-    <dimen name="image_height_large">50dp</dimen>
+    <dimen name="image_height_large">40dp</dimen>
     <dimen name="image_height_most">100dp</dimen>
     <!-- ************************* 结束 ******************** -->
 
@@ -47,6 +49,8 @@
     <!--others-->
     <dimen name="nav_bar_height">56dp</dimen>
     <dimen name="input_height">44dp</dimen>
+    <dimen name="btn_height">44dp</dimen>
+    <dimen name="text_size_login">42sp</dimen>
 
 
 </resources>
