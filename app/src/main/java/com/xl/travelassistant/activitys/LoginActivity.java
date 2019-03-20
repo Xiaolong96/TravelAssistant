@@ -41,14 +41,25 @@ public class LoginActivity extends BaseActivity {
     /**
      * 登录
      */
-    public void onLoginBtnClick () {
+    public void onLoginBtnClick (View v) {
         String phone = mInputPhone.getInputStr();
         String password = mInputPassword.getInputStr();
         // 验证用户输入
-        if(!UserUtils.validateLogin(this, phone, password)) {
+        if(!UserUtils.validateInput(this, phone, password)) {
+//            Toast.makeText(this, "验证", Toast.LENGTH_SHORT).show();
             return;
         }
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    /**
+     * 跳转到注册页面
+     * @param v
+     */
+    public void goRegister (View v) {
+        Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
         finish();
     }

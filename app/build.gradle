@@ -1,4 +1,13 @@
 apply plugin: 'com.android.application'
+// 添加插件
+apply plugin: 'com.mob.sdk'
+// 在MobSDK的扩展中注册SMSSDK的相关信息
+MobSDK {
+    appKey "2a8663a67e1da"
+    appSecret "1c5d93ac44875e32e05cb02826e33b4c"
+
+    SMSSDK {}
+}
 //apply from: "../node_modules/react-native/react.gradle"
 project.ext.react = [
         entryFile: "index.js"
@@ -53,6 +62,7 @@ android {
     }
 
 }
+
 static def releaseTime() {
     return new Date().format("yyMMdd", TimeZone.getTimeZone("UTC"))
 }

@@ -6,9 +6,11 @@
 
     <string name="hint_phone">请输入手机号</string>
     <string name="hint_password">请输入密码</string>
+    <string name="hint_code">请输入验证码</string>
     <!--<string name="check_password">记住密码</string>-->
     <!--<string name="check_login">自动登录</string>-->
     <string name="login">登  录</string>
+    <string name="register">注  册</string>
     <!--<string name="loading">正在加载数据</string>-->
 
 </resources>

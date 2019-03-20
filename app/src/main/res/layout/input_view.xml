@@ -24,6 +24,6 @@
         android:background="@null"
         android:paddingLeft="@dimen/margin_size"
         android:paddingRight="@dimen/margin_size"
-        android:textSize="@dimen/text_size_large"/>
+        android:textSize="@dimen/text_size_medium"/>
 
 </LinearLayout>

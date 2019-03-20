@@ -79,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="立即注册"
+                android:onClick="goRegister"
                 android:textSize="@dimen/text_size_info"
                 android:textColor="@color/main_color"
                 android:layout_gravity="start" />

@@ -8,6 +8,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.mob.MobSDK;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,5 +40,7 @@ public class MyApplication extends Application implements ReactApplication {
         SoLoader.init(this,false);
         // 初始化引入的安卓类库
         Utils.init(this);
+        // 初始化MobSDK
+        MobSDK.init(this);
     }
 }
