@@ -8,6 +8,9 @@ MobSDK {
 
     SMSSDK {}
 }
+
+apply plugin: 'android-aspectjx'
+
 //apply from: "../node_modules/react-native/react.gradle"
 project.ext.react = [
         entryFile: "index.js"
@@ -79,4 +82,5 @@ dependencies {
     implementation files('libs/open_sdk_r6019_lite.jar')
     // android 常用类库
     implementation 'com.blankj:utilcode:1.11.1'
+    implementation 'org.aspectj:aspectjrt:1.8.9'
 }

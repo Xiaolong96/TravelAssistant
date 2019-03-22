@@ -8,6 +8,7 @@
         <!--<item name="colorAccent">@color/colorAccent</item>-->
         <item name="android:statusBarColor">@color/main_color</item>
         <!--<item name="android:windowTranslucentStatus">true</item>-->
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
         <!--去掉系统自带标题栏-->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>

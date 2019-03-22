@@ -6,9 +6,12 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.xl.travelassistant.R;
+import com.xl.travelassistant.annotation.SingleClick;
+import com.xl.travelassistant.utils.CountDownTimerUtils;
 import com.xl.travelassistant.utils.UserUtils;
 import com.xl.travelassistant.views.InputView;
 
@@ -17,6 +20,7 @@ import cn.smssdk.SMSSDK;
 
 public class RegisterActivity extends BaseActivity {
     private InputView mInputRegPhone, mInputRegPassword ,mInputCode;
+    private TextView mTvCode;
     private EventHandler eventHandler;
 
     @Override
@@ -26,8 +30,11 @@ public class RegisterActivity extends BaseActivity {
         mInputRegPhone = findViewById(R.id.input_reg_phone);
         mInputRegPassword = findViewById(R.id.input_reg_password);
         mInputCode = findViewById(R.id.input_code);
+        mTvCode = findViewById(R.id.tv_code);
         sms_verification();
     }
+
+    @SingleClick
     public void onRegisterBtnClick (View view) {
         String phone = mInputRegPhone.getInputStr();
         String password = mInputRegPassword.getInputStr();
@@ -37,11 +44,9 @@ public class RegisterActivity extends BaseActivity {
             return;
         }
         SMSSDK.submitVerificationCode("86", phone, code);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
+    @SingleClick
     public void getCode (View view) {
         String phone = mInputRegPhone.getInputStr();
         if(UserUtils.validateInput(this, phone)) {
@@ -75,6 +80,10 @@ public class RegisterActivity extends BaseActivity {
                                 if(smart) {
                                     Toast.makeText(getApplicationContext(),"该手机号已经注册过，请重新输入",Toast.LENGTH_LONG).show();
                                     return false;
+                                } else {
+                                    CountDownTimerUtils mCountDownTimerUtils = new CountDownTimerUtils(mTvCode, 60000, 1000); //倒计时1分钟
+                                    mCountDownTimerUtils.start();
+                                    Toast.makeText(getApplicationContext(),"验证码已发送，请注意查收",Toast.LENGTH_LONG).show();
                                 }
                             } else {
                                 // TODO 处理错误的结果
@@ -84,7 +93,9 @@ public class RegisterActivity extends BaseActivity {
                         } else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
                             if (result == SMSSDK.RESULT_COMPLETE) {
                                 // TODO 处理验证码验证通过的结果
-                                Toast.makeText(getApplicationContext(), "验证码输入正确",Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                                finish();
                             } else {
                                 // TODO 处理错误的结果
                                 Toast.makeText(getApplicationContext(),"验证码输入错误", Toast.LENGTH_LONG).show();

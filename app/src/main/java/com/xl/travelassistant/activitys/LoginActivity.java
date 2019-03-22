@@ -13,6 +13,7 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import com.xl.travelassistant.R;
+import com.xl.travelassistant.annotation.SingleClick;
 import com.xl.travelassistant.utils.UserUtils;
 import com.xl.travelassistant.views.InputView;
 
@@ -41,6 +42,7 @@ public class LoginActivity extends BaseActivity {
     /**
      * 登录
      */
+    @SingleClick
     public void onLoginBtnClick (View v) {
         String phone = mInputPhone.getInputStr();
         String password = mInputPassword.getInputStr();

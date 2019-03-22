@@ -8,10 +8,13 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.2'
-        
+        // 解决第三方库'compile' is obsolete警告
+        // classpath 'com.google.gms:google-services:3.2.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.mob.sdk:MobSDK:+'
+//        Android 上使用AOP编程，一般使用Aspectj这个库
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.0'
     }
 }
 
