@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
@@ -33,11 +34,13 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        ImmersionBar.with(this).statusBarDarkFont(true).init();
         //传入参数APPID和全局Context上下文
         mTencent = Tencent.createInstance(APP_ID, LoginActivity.this.getApplicationContext());
         mInputPhone = findViewById(R.id.input_phone);
         mInputPassword = findViewById(R.id.input_password);
     }
+
 
     /**
      * 登录
@@ -53,7 +56,6 @@ public class LoginActivity extends BaseActivity {
         }
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        finish();
     }
 
     /**
@@ -63,7 +65,15 @@ public class LoginActivity extends BaseActivity {
     public void goRegister (View v) {
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
-        finish();
+    }
+
+    /**
+     * 跳转到重置密码页面
+     * @param view
+     */
+    public void onFogetPassword (View view) {
+        Intent intent = new Intent(this, ResetPasswordActivity.class);
+        startActivity(intent);
     }
 
     /**

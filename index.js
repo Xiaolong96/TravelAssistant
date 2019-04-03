@@ -1,26 +1,21 @@
-import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import React, { Component } from 'react';
+import {AppRegistry, YellowBox} from 'react-native';
+import App from './src';
+import { Provider } from 'react-redux';
+import configureStore from './src/store';
 
-class App extends React.Component {
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
+
+const store = configureStore();
+
+class myApp extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.hello}>Hello, XL!</Text>
-      </View>
-    );
+      <Provider store={store}>
+        <App/>
+      </Provider>
+    )
   }
 }
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  hello: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: 'red',
-  },
-});
 
-AppRegistry.registerComponent('MyReactNativeApp', () => App);
+AppRegistry.registerComponent('MyReactNativeApp', () => myApp);

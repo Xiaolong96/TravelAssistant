@@ -19,12 +19,14 @@
             android:text="&#xe61e;"
             android:textSize="@dimen/iconfont_size"
             android:textColor="@color/black"
+            android:onClick="onBack"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hi,"
+            android:fontFamily="sans-serif-medium"
             android:layout_marginLeft="@dimen/margin_size"
             android:layout_marginStart="@dimen/margin_size"
             android:textStyle="bold"
@@ -35,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="欢迎注册"
+            android:fontFamily="sans-serif-medium"
             android:layout_marginLeft="@dimen/margin_size"
             android:layout_marginStart="@dimen/margin_size"
             android:textStyle="bold"

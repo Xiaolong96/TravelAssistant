@@ -4,13 +4,15 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <!--<item name="colorPrimary">@color/colorPrimary</item>-->
-        <item name="colorPrimaryDark">@color/main_color</item>
+        <!--<item name="colorPrimaryDark">@color/main_color</item>-->
         <!--<item name="colorAccent">@color/colorAccent</item>-->
         <!--<item name="android:statusBarColor">@color/main_color</item>-->
-        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <!--<item name="android:windowAnimationStyle">@style/AnimationActivity</item>-->
         <!--去掉系统自带标题栏-->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+        <!--防止出现空白页-->
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
     <style name="fullScreen" parent="AppTheme">

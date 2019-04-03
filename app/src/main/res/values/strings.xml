@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TravelAssistant</string>
+    <string name="app_name">旅宝</string>
 
     <!--iconfont-->
     <string name="icon_phone">&#xe768;</string>

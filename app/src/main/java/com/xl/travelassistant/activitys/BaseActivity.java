@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.xl.travelassistant.R;
 
 public class BaseActivity extends AppCompatActivity {
@@ -33,5 +34,25 @@ public class BaseActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    public void onBack (View view) {
+//        onBackPressed();
+        finish();
+//        ((Activity)this).overridePendingTransition(R.anim.close_enter, R.anim.close_exit);
+    }
+
+//    @Override
+//    public void finish () {
+//        super.finish();
+//        // 注销掉activity本身的动画，防止对style中设置的动画产生干扰
+//        overridePendingTransition(0, 0);
+//    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // 必须调用该方法，防止内存泄漏
+        ImmersionBar.with(this).destroy();
     }
 }

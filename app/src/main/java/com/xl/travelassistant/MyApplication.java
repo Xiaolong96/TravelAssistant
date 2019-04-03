@@ -9,6 +9,9 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.mob.MobSDK;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
+import com.xl.travelassistant.utils.OpenNativePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,7 +25,12 @@ public class MyApplication extends Application implements ReactApplication {
         }
         @Override
         protected List<ReactPackage> getPackages() {
-            return Arrays.<ReactPackage>asList(new MainReactPackage());
+            return Arrays.<ReactPackage>asList(
+                    new MainReactPackage(),
+                    new OpenNativePackage(),
+                    new RNGestureHandlerPackage(),
+                    new VectorIconsPackage()
+                    );
         }
         // 这是需要添加的
         @Override

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.xl.travelassistant.R;
 import com.xl.travelassistant.annotation.SingleClick;
 import com.xl.travelassistant.utils.CountDownTimerUtils;
@@ -27,6 +28,7 @@ public class RegisterActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        ImmersionBar.with(this).statusBarDarkFont(true).init();
         mInputRegPhone = findViewById(R.id.input_reg_phone);
         mInputRegPassword = findViewById(R.id.input_reg_password);
         mInputCode = findViewById(R.id.input_code);

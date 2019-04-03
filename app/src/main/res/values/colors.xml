@@ -4,11 +4,12 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
-    <color name="main_color">#30C69D</color>
-    <color name="main_color_gray">#b8f4de</color>
+    <color name="main_color">#FFA600</color>
+    <color name="main_color_gray">#FFD38C</color>
 
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="gray_light">#D3D3D3</color>
 
     <color name="line">#C3C3C3</color>
 

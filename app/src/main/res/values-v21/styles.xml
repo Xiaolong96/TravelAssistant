@@ -4,16 +4,19 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <!--<item name="colorPrimary">@color/colorPrimary</item>-->
-        <item name="colorPrimaryDark">@color/main_color</item>
+        <!--<item name="colorPrimaryDark">@color/main_color</item>-->
         <!--<item name="colorAccent">@color/colorAccent</item>-->
-        <item name="android:statusBarColor">@color/main_color</item>
-        <!--<item name="android:windowTranslucentStatus">true</item>-->
-        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <!--<item name="android:statusBarColor">@color/main_color</item>-->
+        <!--<item name="android:statusBarColor">@android:color/transparent</item>-->
+        <item name="android:windowTranslucentStatus">true</item>
+        <!--<item name="android:windowAnimationStyle">@style/AnimationActivity</item>-->
         <!--去掉系统自带标题栏-->
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <!--设置半透明虚拟键盘-->
-        <item name="android:windowTranslucentNavigation">true</item>
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <!--字体-->
+        <!--<item name="android:typeface">normal</item>-->
     </style>
 
     <style name="fullScreen" parent="AppTheme">
@@ -41,5 +44,16 @@
         <item name="android:layout_marginRight">@dimen/margin_size</item>
         <item name="android:background">@color/line</item>
     </style>
+
+    <!--<style name="AnimationActivity" parent="@android:style/Animation.Activity">-->
+        <!--&lt;!&ndash;打开Activity时，新进入的activity执行的动画&ndash;&gt;-->
+        <!--<item name="android:activityOpenEnterAnimation">@anim/open_enter</item>-->
+        <!--&lt;!&ndash;打开Activity时，原activity执行的动画&ndash;&gt;-->
+        <!--<item name="android:activityOpenExitAnimation">@anim/open_exit</item>-->
+        <!--&lt;!&ndash;退出Activity时，退出的activity执行的动画&ndash;&gt;-->
+        <!--<item name="android:activityCloseExitAnimation">@anim/close_exit</item>-->
+        <!--&lt;!&ndash;退出Activity时，重新显示的activity执行的动画&ndash;&gt;-->
+        <!--<item name="android:activityCloseEnterAnimation">@anim/close_enter</item>-->
+    <!--</style>-->
 
 </resources>
