@@ -34,7 +34,7 @@ public class WelcomeActivity extends BaseActivity {
      * 跳转到MainActivity
      */
     private void toMain() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MyReactActivity.class);
         startActivity(intent);
         finish();
     }

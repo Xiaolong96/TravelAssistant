@@ -44,14 +44,14 @@ const BottomTab = createBottomTabNavigator({
 }, {
     tabBarOptions: {
       activeTintColor: constants.MAIN_COLOR,
-      inactiveTintColor: constants.GRAY_LIGHT,
+      inactiveTintColor: constants.GRAY,
       labelStyle: {
         fontSize: 12,
         marginBottom: 5,
       },
       style: {
         borderTopWidth: 0.2,
-        borderTopColor: '#c3c3c3',
+        borderTopColor: constants.GRAY_LIGHT,
         height: 50,
         backgroundColor: '#fff'
       },

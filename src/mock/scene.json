@@ -1,0 +1,191 @@
+{
+    "showapi_res_error": "",
+    "showapi_res_id": "935eef1b7c034af5b6ac67209b15c8a9",
+    "showapi_res_code": 0,
+    "showapi_res_body": {
+        "result": [
+            {
+                "glocation": "36.069527,120.44347",
+                "scenicName": "青岛海昌极地海洋世界",
+                "salePrice": 110,
+                "blocation": "36.0754,120.45",
+                "dis_list": [
+                    {
+                        "productName": "<<极地海洋馆+深海奇幻成人票>（专享）>",
+                        "webPrice": 220,
+                        "salePrice": 204,
+                        "productId": 210758678
+                    },
+                    {
+                        "productName": "<<极地海洋馆+欢乐剧场+深海奇幻成人票>（专享）>",
+                        "webPrice": 240,
+                        "salePrice": 212,
+                        "productId": 210758636
+                    },
+                    {
+                        "productName": "<<极地海洋馆+欢乐剧场+5D体验馆+深海奇幻成人票>（专享）>",
+                        "webPrice": 255,
+                        "salePrice": 222,
+                        "productId": 210758698
+                    }
+                ],
+                "address": "山东省青岛市东海东路60号。",
+                "bizTime": "8:30-17:00",
+                "newPicUrl": "http://app1.showapi.com/images/ticket/885fd019-72c2-48eb-a0b9-a3b4384ec37a.jpg",
+                "scenicId": "poi38352"
+            },
+            {
+                "glocation": "36.20925,120.28445",
+                "scenicName": "青岛方特梦幻王国",
+                "salePrice": 200,
+                "blocation": "36.215,120.291",
+                "dis_list": [
+                    {
+                        "productName": "<<青岛方特梦幻王国>全价票>",
+                        "webPrice": 280,
+                        "salePrice": 270,
+                        "productId": 210783478
+                    },
+                    {
+                        "productName": "<<青岛方特梦幻王国>当日全价票>",
+                        "webPrice": 280,
+                        "salePrice": 280,
+                        "productId": 210783498
+                    },
+                    {
+                        "productName": "<<青岛方特梦幻王国>自由行单人年卡>",
+                        "webPrice": 520,
+                        "salePrice": 510,
+                        "productId": 210783624
+                    },
+                    {
+                        "productName": "<<青岛方特梦幻王国>儿童票>",
+                        "webPrice": 200,
+                        "salePrice": 190,
+                        "productId": 210783415
+                    },
+                    {
+                        "productName": "<<青岛方特梦幻王国>当日儿童票>",
+                        "webPrice": 200,
+                        "salePrice": 200,
+                        "productId": 210783464
+                    },
+                    {
+                        "productName": "<<青岛方特梦幻王国>长者票>",
+                        "webPrice": 200,
+                        "salePrice": 190,
+                        "productId": 210783377
+                    },
+                    {
+                        "productName": "<<青岛方特梦幻王国>当日长者票>",
+                        "webPrice": 200,
+                        "salePrice": 200,
+                        "productId": 210783406
+                    }
+                ],
+                "address": "青岛市近郊城阳区红岛街道(近环湾高速)。",
+                "bizTime": "周六、周日09:00~17:30。",
+                "newPicUrl": "http://app1.showapi.com/images/ticket/ba2b5aba-65b6-4151-976e-ea7206ca0f3b.jpg",
+                "scenicId": "poi54124"
+            },
+            {
+                "glocation": "36.056698,120.33553",
+                "scenicName": "青岛海底世界",
+                "salePrice": 65,
+                "blocation": "36.0628,120.342",
+                "dis_list": [
+                    {
+                        "productName": "<<青岛海底世界门票>（双人票）>",
+                        "webPrice": 220,
+                        "salePrice": 205,
+                        "productId": 210695690
+                    }
+                ],
+                "address": "山东省青岛市市南区莱阳路4号（梦幻水母宫西门）",
+                "bizTime": "08:00-16:30、 2月15日除夕： 8:30-16:00",
+                "newPicUrl": "http://app1.showapi.com/images/ticket/67ffceff-4194-4587-b0da-173cf2e106b0.jpg",
+                "scenicId": "poi5566"
+            },
+            {
+                "glocation": "36.055187,120.3305",
+                "scenicName": "青岛海军博物馆",
+                "salePrice": 13,
+                "blocation": "36.0612,120.337",
+                "dis_list": [],
+                "address": "山东省青岛市南区莱阳路八号",
+                "bizTime": "①旺季 5.1 - 10.31：08:30-17:30②淡季 11.1. - 4.30.：08:30-16:30",
+                "newPicUrl": "http://app1.showapi.com/images/ticket/f92a8192-ba9f-4685-afe5-eed8d8f68570.jpg",
+                "scenicId": "poi2195"
+            },
+            {
+                "glocation": "35.797333,120.00542",
+                "scenicName": "大珠山",
+                "salePrice": 38,
+                "blocation": "35.803684,120.01183",
+                "dis_list": [],
+                "address": "山东省青岛市胶南县滨海街道办事处南1公里大珠山风景区",
+                "bizTime": "08:00-17:00",
+                "newPicUrl": "http://app1.showapi.com/images/ticket/f886593b-c9e1-4fbf-9e0f-4e92e997fa21.jpg",
+                "scenicId": "poi12508"
+            },
+            {
+                "glocation": "36.9356,119.975555",
+                "scenicName": "茶山风景区",
+                "salePrice": 48,
+                "blocation": "36.9417,119.982",
+                "dis_list": [],
+                "address": "青岛平度市店子镇茶山风景区。",
+                "bizTime": "09:00-17:00",
+                "newPicUrl": "http://app1.showapi.com/images/ticket/0fd2406e-1670-40f4-a9cc-0405425204fd.jpg",
+                "scenicId": "poi788072"
+            },
+            {
+                "glocation": "35.982464,120.05941",
+                "scenicName": "青岛森林野生动物世界",
+                "salePrice": 50,
+                "blocation": "35.9881,120.066",
+                "dis_list": [],
+                "address": "青岛开发区小珠山风景区森林野生动物园。",
+                "bizTime": "08:00-17:30",
+                "newPicUrl": "http://app1.showapi.com/images/ticket/09d2bf09-f751-4f16-b9ce-19df87686afe.jpg",
+                "scenicId": "poi3068"
+            },
+            {
+                "glocation": "36.12166,120.6072",
+                "scenicName": "崂山",
+                "salePrice": 95,
+                "blocation": "36.127995,120.6136",
+                "dis_list": [],
+                "address": "山东省青岛市崂山风景区",
+                "bizTime": "8：00—17：30（旺季），8：00—16：30（淡季）；",
+                "newPicUrl": "http://app1.showapi.com/images/ticket/6541d2d6-de4f-432c-8f91-0460c3e2511f.jpg",
+                "scenicId": "poi17343"
+            },
+            {
+                "glocation": "36.445786,120.64239",
+                "scenicName": "城投温泉度假酒店",
+                "salePrice": 60,
+                "blocation": "36.45156,120.64893",
+                "dis_list": [],
+                "address": "山东省青岛市即墨市温泉镇大田路2997号。",
+                "bizTime": "9:30—24:00",
+                "newPicUrl": "http://app1.showapi.com/images/ticket/9db7fe24-62ed-4758-99e6-ae9f55bd7331.jpg",
+                "scenicId": "poi38417"
+            },
+            {
+                "glocation": "36.06744,120.37788",
+                "scenicName": "青岛万象城世嘉都市乐园",
+                "salePrice": 70,
+                "blocation": "36.073654,120.3843",
+                "dis_list": [],
+                "address": "山东省青岛市南区山东路6号甲万象城5楼",
+                "bizTime": "周日-周四：10:00-22:00； 周五周六：10:00-22:30",
+                "newPicUrl": "http://app1.showapi.com/images/ticket/13fcea70-4f32-4e06-b72a-edd216fb6a21.jpg",
+                "scenicId": "poi1831502"
+            }
+        ],
+        "msg": "查询成功！",
+        "totalCount": 45,
+        "ret_code": 0
+    }
+}
