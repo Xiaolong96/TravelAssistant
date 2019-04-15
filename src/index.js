@@ -12,6 +12,7 @@ import * as constants from './constants/index'
 import Home from "./components/Home"
 import Strategy from "./components/Strategy"
 import Mine from "./components/Mine"
+import Search from "./components/Search"
 
 const BottomTab = createBottomTabNavigator({
   Home: {
@@ -71,7 +72,13 @@ const MyApp = createStackNavigator({
     navigationOptions: {
       header: null
     }
-  }
+  },
+  Search: {
+    screen: Search,
+    navigationOptions: {
+      header: null
+    }
+  },
 }, {
     headerMode: 'screen',
     // headerMode: 'none',
