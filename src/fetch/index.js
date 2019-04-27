@@ -10,6 +10,7 @@ export async function postData(url, data) {
         let responseJson = await response.json();
         return responseJson;
       } catch (error) {
+        alert(error);
         console.error(error);
       }
 }

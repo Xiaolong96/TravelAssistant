@@ -13,6 +13,9 @@ import Home from "./components/Home"
 import Strategy from "./components/Strategy"
 import Mine from "./components/Mine"
 import Search from "./components/Search"
+import ScenicSpotDetail from "./components/ScenicSpotDetail"
+import Map from './components/Map'
+import MyCollection from './components/MyCollection'
 
 const BottomTab = createBottomTabNavigator({
   Home: {
@@ -43,6 +46,14 @@ const BottomTab = createBottomTabNavigator({
     },
   }
 }, {
+    initialRouteName: 'Home', // 设置默认的页面
+    //是否允许滑动切换tab页
+    swipeEnabled: true,
+    //是否在切换tab页时使用动画
+    animationEnabled: true,
+    //是否懒加载
+    lazy: true,
+    backBehavior: 'initialRoute', // 点击返回退到上级界面
     tabBarOptions: {
       activeTintColor: constants.MAIN_COLOR,
       inactiveTintColor: constants.GRAY,
@@ -56,12 +67,6 @@ const BottomTab = createBottomTabNavigator({
         height: 50,
         backgroundColor: '#fff'
       },
-      //是否允许滑动切换tab页
-      swipeEnabled: true,
-      //是否在切换tab页时使用动画
-      animationEnabled: false,
-      //是否懒加载
-      lazy: true,
     }
 
   });
@@ -79,6 +84,24 @@ const MyApp = createStackNavigator({
       header: null
     }
   },
+  ScenicSpotDetail: {
+    screen: ScenicSpotDetail,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Map: {
+    screen: Map,
+    navigationOptions: {
+      header: null
+    }
+  },
+  MyCollection: {
+    screen: MyCollection,
+    navigationOptions: {
+      header: null
+    }
+  }
 }, {
     headerMode: 'screen',
     // headerMode: 'none',

@@ -1,0 +1,758 @@
+{
+    "status": "1",
+    "count": "865",
+    "info": "OK",
+    "infocode": "10000",
+    "suggestion": {
+        "keywords": [],
+        "cities": []
+    },
+    "pois": [
+        {
+            "id": "B0FFHUKT7I",
+            "parent": [],
+            "name": "北京望京凯悦酒店",
+            "type": "住宿服务;宾馆酒店;五星级宾馆",
+            "typecode": "100102",
+            "biz_type": "hotel",
+            "address": "广顺南大街8号",
+            "location": "116.475637,39.991232",
+            "tel": "010-86301234",
+            "distance": "289",
+            "biz_ext": {
+                "rating": "4.6",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "1056.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "1",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/702d29d2fcc27173b1749dcc9ef32cd0",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/a8f4e3b16fef86345aee401ba0a2aee4",
+                    "title": "酒店外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/6f41c72b761bf29caf75241280e3f7a6",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B0FFICG04J",
+            "parent": "B000A8386B",
+            "name": "云顶酒店式公寓",
+            "type": "住宿服务;住宿服务相关;住宿服务相关",
+            "typecode": "100000",
+            "biz_type": "hotel",
+            "address": "阜荣街望京悠乐汇D座",
+            "location": "116.478029,39.990304",
+            "tel": "18519944134",
+            "distance": "512",
+            "biz_ext": {
+                "rating": "4.0",
+                "cost": [],
+                "hotel_ordering": "0",
+                "star": [],
+                "lowest_price": []
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/4adef13f3ec524980f9bb9c6b8339e63",
+                    "title": [],
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/5ed7486ed9625653602b818d2b8adfe4",
+                    "title": [],
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/8fcb547310c598f1e3011356ea0da516",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B0FFJDH8JZ",
+            "parent": "B000A8386E",
+            "name": "北京美豪酒店式公寓",
+            "type": "住宿服务;住宿服务相关;住宿服务相关",
+            "typecode": "100000",
+            "biz_type": "hotel",
+            "address": "望京园402号东亚望京中心B座3215房",
+            "location": "116.472755,39.992258",
+            "tel": "18513681338",
+            "distance": "91",
+            "biz_ext": {
+                "rating": "5.0",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "451.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/576fe9215fcbb90ed279d4cd5f258461",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/05eb6ff58c0da47dd66ad6a13539c5bc",
+                    "title": "酒店外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/6de4da5212d5b2c836340d1ea87bf712",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B000A8VQHV",
+            "parent": "B000A8VUUQ",
+            "name": "北京教文大酒店",
+            "type": "住宿服务;宾馆酒店;四星级宾馆",
+            "typecode": "100103",
+            "biz_type": "hotel",
+            "address": "湖光中街甲6号望京港旅大厦",
+            "location": "116.464447,39.996401",
+            "tel": "010-64788100;010-84786668",
+            "distance": "833",
+            "biz_ext": {
+                "rating": "4.4",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "667.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/3f9ba75ddebd6bd17579e11a618c222c",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/931f93350ea15a2c175aeda0e8ee0523",
+                    "title": "酒店外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/365a23d14a87bb4fba0b9cef9a3da96a",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B0FFHI3614",
+            "parent": [],
+            "name": "儒家酒店式公寓(北京东亚望京中心店)",
+            "type": "住宿服务;住宿服务相关;住宿服务相关",
+            "typecode": "100000",
+            "biz_type": "hotel",
+            "address": "广顺南大街东亚望京B座10层1006室",
+            "location": "116.472877,39.992128",
+            "tel": "010-84786651;15810018468",
+            "distance": "101",
+            "biz_ext": {
+                "rating": "4.2",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "344.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/2fbe3916471c0e286888909dcd611131",
+                    "title": "经济大床房",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/5e0bf4797ce512a136100c300b3e00eb",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/7b5835ee39acd82a420f253e11dd3fcc",
+                    "title": "Logo",
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B000A8VO2M",
+            "parent": [],
+            "name": "北京东煌酒店停车场",
+            "type": "交通设施服务;停车场;公共停车场",
+            "typecode": "150904",
+            "biz_type": [],
+            "address": "广顺南大街16号",
+            "location": "116.479390,39.987480",
+            "tel": [],
+            "distance": "813",
+            "biz_ext": {
+                "rating": [],
+                "cost": []
+            },
+            "parking_type": "地面",
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "2",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/0b607d0dcca96b40b29d27aec3165cbb",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B0FFKFZ5HF",
+            "parent": [],
+            "name": "天池酒店",
+            "type": "住宿服务;宾馆酒店;宾馆酒店",
+            "typecode": "100100",
+            "biz_type": "hotel",
+            "address": "广顺南大街与阜安东路交叉口东100米",
+            "location": "116.476290,39.989597",
+            "tel": [],
+            "distance": "464",
+            "biz_ext": {
+                "rating": [],
+                "cost": [],
+                "hotel_ordering": [],
+                "star": [],
+                "lowest_price": []
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": []
+        },
+        {
+            "id": "B0FFH5BXDB",
+            "parent": "B000A8386D",
+            "name": "北京旅途家酒店式公寓",
+            "type": "住宿服务;住宿服务相关;住宿服务相关",
+            "typecode": "100000",
+            "biz_type": "hotel",
+            "address": "望京东亚望京中心A座",
+            "location": "116.472490,39.992050",
+            "tel": [],
+            "distance": "122",
+            "biz_ext": {
+                "rating": [],
+                "cost": [],
+                "hotel_ordering": "0",
+                "star": [],
+                "lowest_price": []
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": []
+        },
+        {
+            "id": "B000A9MXD5",
+            "parent": "B0FFGJRA58",
+            "name": "怡家酒店(望京地铁站店)",
+            "type": "住宿服务;宾馆酒店;宾馆酒店",
+            "typecode": "100100",
+            "biz_type": "hotel",
+            "address": "望京南湖东园221号楼",
+            "location": "116.467496,39.999200",
+            "tel": "010-84710101;4000651008",
+            "distance": "841",
+            "biz_ext": {
+                "rating": "4.2",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "249.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/be3b02a4d34f9faf8d2e92032011c5c0",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/c93ec777263bcc26570a669f93d807dc",
+                    "title": "酒店外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/bc3e9dbae1ec9f58e1391d34bb75c45a",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B0FFHUK758",
+            "parent": "B000A8VRL0",
+            "name": "北京教文大酒店停车场(入口)",
+            "type": "交通设施服务;停车场;停车场入口",
+            "typecode": "150907",
+            "biz_type": [],
+            "address": "湖光中街甲1号附近",
+            "location": "116.464089,39.996750",
+            "tel": [],
+            "distance": "878",
+            "biz_ext": {
+                "rating": [],
+                "cost": []
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "2",
+            "poiweight": [],
+            "photos": []
+        },
+        {
+            "id": "B0FFH27N3K",
+            "parent": "B000A8VRL0",
+            "name": "北京教文大酒店停车场(出口)",
+            "type": "交通设施服务;停车场;停车场出口",
+            "typecode": "150908",
+            "biz_type": [],
+            "address": "湖光中街甲6号望京港旅大厦北京教文大酒店",
+            "location": "116.464056,39.996751",
+            "tel": [],
+            "distance": "881",
+            "biz_ext": {
+                "rating": [],
+                "cost": []
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "2",
+            "poiweight": [],
+            "photos": []
+        },
+        {
+            "id": "B0FFG2JLDU",
+            "parent": "B0FFGIIJ5T",
+            "name": "7天优品酒店(北京望京店)",
+            "type": "住宿服务;宾馆酒店;经济型连锁酒店",
+            "typecode": "100105",
+            "biz_type": "hotel",
+            "address": "望京西园4区428号",
+            "location": "116.471219,39.994003",
+            "tel": "010-64718688",
+            "distance": "199",
+            "biz_ext": {
+                "rating": "4.3",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "225.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/c3c98f7182080c42169d1c110b3617a2",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/24bc57b9d2eed965c551dccb689e046a",
+                    "title": "酒店外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/b8376e82d36ff576b84a54336d639648",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B000AA1BWT",
+            "parent": [],
+            "name": "北京天池家园酒店",
+            "type": "住宿服务;宾馆酒店;三星级宾馆",
+            "typecode": "100104",
+            "biz_type": "hotel",
+            "address": "望京广顺南大街望京园609号楼悠乐汇A座18层",
+            "location": "116.476460,39.989623",
+            "tel": "010-84766139;13011137777",
+            "distance": "470",
+            "biz_ext": {
+                "rating": "4.7",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "542.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/8ed6e2c9a953af519199879b0d571383",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/868ff15f252c2b334aed93a0a53f1729",
+                    "title": "酒店外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/086c0997585984ab174173dfadf31032",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B0FFFANJY5",
+            "parent": [],
+            "name": "汉庭酒店(北京望京花家地店)",
+            "type": "住宿服务;宾馆酒店;经济型连锁酒店",
+            "typecode": "100105",
+            "biz_type": "hotel",
+            "address": "花家地1号楼",
+            "location": "116.469022,39.985435",
+            "tel": "010-52828060;010-84785699",
+            "distance": "914",
+            "biz_ext": {
+                "rating": "4.5",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "337.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/4b05b8a27cc3b0f93d4e3a5282d3fade",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/5fe47b09497b7cdcfb0524400c39f161",
+                    "title": "酒店外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/aadfb9d98f8e8d37d1489d51fd8c3a50",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B000A9N4AT",
+            "parent": "B0FFG4VO8L",
+            "name": "如雅商务酒店(望京店)",
+            "type": "住宿服务;宾馆酒店;宾馆酒店",
+            "typecode": "100100",
+            "biz_type": "hotel",
+            "address": "望京街望京西园4区乙410号楼1层",
+            "location": "116.474328,39.997463",
+            "tel": "010-65678882;010-65678889",
+            "distance": "504",
+            "biz_ext": {
+                "rating": "4.0",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "283.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/7205625bf4f2b30c97e111416216fad5",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/b080085e5404665efd7b2a0423069874",
+                    "title": "酒店外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/d575bd5503b7eddc72d8173c352eaa69",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B0FFFAJYRZ",
+            "parent": [],
+            "name": "东煌凯丽酒店",
+            "type": "住宿服务;宾馆酒店;四星级宾馆",
+            "typecode": "100103",
+            "biz_type": "hotel",
+            "address": "广顺南大街16号",
+            "location": "116.480026,39.987037",
+            "tel": "010-64796666;010-64797575",
+            "distance": "885",
+            "biz_ext": {
+                "rating": "4.3",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "667.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "1",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/485ac3cdde24a9f2d23180a6d83343e4",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/45dc2f6ea1e52ce7a7a5a8a12423961d",
+                    "title": "酒店外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/6755fd4d5ee639478dd0d49052ab94ca",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B0FFHRJFQE",
+            "parent": "B0FFF3K809",
+            "name": "北京昨天酒店",
+            "type": "住宿服务;住宿服务相关;住宿服务相关",
+            "typecode": "100000",
+            "biz_type": "hotel",
+            "address": "望京园603号楼10层1125室",
+            "location": "116.477656,39.990578",
+            "tel": "15801211995",
+            "distance": "469",
+            "biz_ext": {
+                "rating": [],
+                "cost": [],
+                "hotel_ordering": "0",
+                "star": [],
+                "lowest_price": []
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": []
+        },
+        {
+            "id": "B000A8WAXF",
+            "parent": "B000A87S4U",
+            "name": "北京悦居·中国酒店",
+            "type": "住宿服务;宾馆酒店;三星级宾馆",
+            "typecode": "100104",
+            "biz_type": "hotel",
+            "address": "广顺南大街望京园609号楼悠乐汇A座2层218-5室",
+            "location": "116.476756,39.989485",
+            "tel": "010-84991688;010-84787328",
+            "distance": "498",
+            "biz_ext": {
+                "rating": "4.7",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "478.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/13b8242a733c7088d6770af82be61d5b",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/226a4828e094dcf9def6082b9febc2a6",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/d2fcc476d94de8daaf39aaa8ddfe8a6e",
+                    "title": "酒店外观",
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B000A8VSZD",
+            "parent": "B0FFH14KJ1",
+            "name": "布丁酒店(北京望京店)",
+            "type": "住宿服务;宾馆酒店;经济型连锁酒店",
+            "typecode": "100105",
+            "biz_type": "hotel",
+            "address": "望京湖光中街9号院内(中石化加油站旁)",
+            "location": "116.466405,39.997937",
+            "tel": "010-64728973",
+            "distance": "795",
+            "biz_ext": {
+                "rating": "3.4",
+                "cost": [],
+                "hotel_ordering": "1",
+                "star": [],
+                "lowest_price": "271.00"
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": [
+                {
+                    "url": "http://store.is.autonavi.com/showpic/1d79e4fceea0bd0fca48e67b5f85bfd4",
+                    "title": "外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/42420213d2dc36afac2b3f0f005e8a0f",
+                    "title": "酒店外观",
+                    "provider": []
+                },
+                {
+                    "url": "http://store.is.autonavi.com/showpic/82f08098890f1c1c869680728a03b7ff",
+                    "title": [],
+                    "provider": []
+                }
+            ]
+        },
+        {
+            "id": "B0FFJRTANS",
+            "parent": [],
+            "name": "京港旅店",
+            "type": "住宿服务;旅馆招待所;旅馆招待所",
+            "typecode": "100200",
+            "biz_type": "hotel",
+            "address": "湖光中街甲6号2层201B",
+            "location": "116.464478,39.996656",
+            "tel": [],
+            "distance": "844",
+            "biz_ext": {
+                "rating": [],
+                "cost": [],
+                "hotel_ordering": [],
+                "star": [],
+                "lowest_price": []
+            },
+            "pname": "北京市",
+            "cityname": "北京市",
+            "adname": "朝阳区",
+            "importance": [],
+            "shopid": [],
+            "shopinfo": "0",
+            "poiweight": [],
+            "photos": []
+        }
+    ]
+}

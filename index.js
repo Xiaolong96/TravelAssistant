@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {AppRegistry, YellowBox} from 'react-native';
+import {AppRegistry, YellowBox, BackHandler, ToastAndroid} from 'react-native';
 import App from './src';
 import { Provider } from 'react-redux';
 import configureStore from './src/store';
@@ -9,6 +9,27 @@ YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTIm
 const store = configureStore();
 
 class myApp extends Component {
+  componentDidMount() {
+    // BackHandler.addEventListener('hardwareBackPress', this.onBackAndroid);
+}
+componentWillUnmount() {
+    // BackHandler.removeEventListener('hardwareBackPress', this.onBackAndroid);
+}
+
+
+onBackAndroid = () => {
+  //禁用返回键
+  if(this.props.navigation.isFocused()){//判断   该页面是否处于聚焦状态
+      if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
+          BackHandler.exitApp();//直接退出APP
+      }else{
+          this.lastBackPressed = Date.now();
+          ToastAndroid.show('再按一次退出应用', 1000);//提示
+          return true;
+      }
+  }
+}
+
   render() {
     return (
       <Provider store={store}>

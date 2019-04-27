@@ -8,6 +8,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.horcrux.svg.SvgPackage;
 import com.mob.MobSDK;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -15,6 +16,8 @@ import com.xl.travelassistant.utils.OpenNativePackage;
 
 import java.util.Arrays;
 import java.util.List;
+
+import cn.qiuxiang.react.amap3d.AMap3DPackage;
 
 public class MyApplication extends Application implements ReactApplication {
 
@@ -29,7 +32,9 @@ public class MyApplication extends Application implements ReactApplication {
                     new MainReactPackage(),
                     new OpenNativePackage(),
                     new RNGestureHandlerPackage(),
-                    new VectorIconsPackage()
+                    new VectorIconsPackage(),
+                    new SvgPackage(),
+                    new AMap3DPackage()
                     );
         }
         // 这是需要添加的

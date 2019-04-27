@@ -10,6 +10,10 @@ class ListItem extends Component {
     this.state = {};
   }
 
+  componentWillMount() {
+    
+  }
+
   componentDidMount() {
   }
 
@@ -19,7 +23,7 @@ class ListItem extends Component {
         <View style={styles.container}>
         <View style={styles.itemWrap}>
           <View style={{flexDirection: "row", alignItems: "center"}}>
-              <Icon name="ios-notifications-outline" size={30} color={this.props.iconColor} />
+              <Icon name={this.props.iconName} size={24} color={this.props.iconColor} />
               <Text style={{color: constants.GRAY_DARKEST, fontSize: 16, marginLeft: 16}}>
                   {this.props.title}
               </Text>

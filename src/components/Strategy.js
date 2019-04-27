@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { MapView } from 'react-native-amap3d'
 
 class Strategy extends Component {
   constructor(props) {
@@ -9,7 +10,13 @@ class Strategy extends Component {
   render() {
     return (
         <View style={styles.container}>
-          <Text>Strategy</Text>
+          <MapView
+            style={{height: "100%", width: "100%"}}
+            coordinate={{
+              latitude: 39.91095,
+              longitude: 116.37296,
+            }}
+          />
         </View>
     );
   }
