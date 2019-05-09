@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, StatusBar, ToastAndroid, TouchableWithoutFeedback, NativeModules, FlatList, Linking, BackHandler } from 'react-native';
+import { Text, View, StyleSheet, StatusBar, ToastAndroid, TouchableWithoutFeedback,
+ NativeModules, FlatList, Linking, BackHandler, DeviceEventEmitter } from 'react-native';
+import { connect } from 'react-redux';
+import { doLogin } from '../store/actions/login';
 
 import ListItem from "../common/ListItem";
 
@@ -10,33 +13,60 @@ import AntDesignIcon from "react-native-vector-icons/AntDesign";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import AlertSelected from '../common/AlertSelected'
 
+import store from '../store/index';
+
 const nativeModule = NativeModules.OpenNativeModule;
+
+let gUserData = {};
 
 class Mine extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      // userData: {},
+    };
     this.showAlertSelected = this.showAlertSelected.bind(this);
     this.callbackSelected = this.callbackSelected.bind(this);
     this.onListItemPress = this.onListItemPress.bind(this);
   }
 
+
+  componentWillMount(){
+    
+  }
+
   componentDidMount() {
+    this.emitListener = DeviceEventEmitter.addListener('LoginSuccess', (e) => {
+      setTimeout(() => {
+        res = JSON.parse(e.userRes);
+        gUserData = res.data;
+        // alert(JSON.stringify(gUserData))
+        // this.props.login(gUserData);
+      }, 500);
+    });
     this._navListener = this.props.navigation.addListener('didFocus', () => {
       StatusBar.setBarStyle('dark-content', false);
       StatusBar.setTranslucent(true);
       StatusBar.setHidden(false, false);
       StatusBar.setBackgroundColor('transparent', false);
+      if(JSON.stringify(gUserData) !== '{}') {
+        this.props.login(gUserData);
+        gUserData = {};
+        alert(JSON.stringify(store.getState()))
+      }
       // this.backHandler = BackHandler.addEventListener('hardwareBackPress', this.onBackAndroid);
     });
   }
 
   componentWillUnmount() {
     this._navListener.remove();
+    this.emitListener.remove();
   }
 
   onJumpLogin() {
-    nativeModule.openNativeVC();
+    if(!this.props.userInfo.username) {
+      nativeModule.openNativeVC();
+    }
   }
 
   onBackAndroid = () => {
@@ -69,13 +99,14 @@ class Mine extends Component {
       '我的收藏': 'MyCollection',
       '我的消息': 'MyCollection',
       '我的游记': 'MyCollection',
-      '设置': 'MyCollection',
+      '设置': 'Setting',
     }
     // alert(obj[title]);
     this.props.navigation.navigate(obj[title]);
   }
 
   render() {
+    const { userInfo } = this.props;
     return (
         <View style={styles.container}>
           <View>
@@ -83,14 +114,14 @@ class Mine extends Component {
             <View style={{backgroundColor: '#fff', height: 100}} />
             <View style={styles.header}>
             <TouchableWithoutFeedback
-              onPress={this.onJumpLogin}
+              onPress={this.onJumpLogin.bind(this)}
             >
               <View style={{height: 90, width: 100, justifyContent: "space-between", alignItems: "center"}}>
                 <View style={[styles.userHead, {backgroundColor: "#fff"}]}>
                   <Icon name="ios-person" size={30} color={constants.MAIN_COLOR_LIGHT} />
                 </View>
                 <View style={styles.userInfoWrap}>
-                  <Text style={styles.userInfo}>请登录</Text>
+                  <Text numberOfLines={1} ellipsizeMode={'tail'} style={styles.userInfo}>{userInfo.username? userInfo.username : '请登录'}</Text>
                 </View>
               </View>
             </TouchableWithoutFeedback>
@@ -182,7 +213,7 @@ const styles = StyleSheet.create({
   },
   header: {
     position: 'absolute',
-    top: 42, 
+    top: 42,
     left: 0,
     width: "100%",
     height: 160,
@@ -200,7 +231,10 @@ const styles = StyleSheet.create({
   },
   userInfoWrap: {
     justifyContent: "center",
-    height: 27, 
+    alignItems: 'center',
+    height: 27,
+    maxWidth: 120,
+    minWidth: 50,
     paddingLeft: 10,
     paddingRight: 10,
     borderRadius: 6, 
@@ -221,4 +255,18 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Mine;
+function mapStateToProps(state) {
+    return {
+        userInfo: state.userInfo,
+    }
+}
+function mapDispatchToProps(dispatch) {
+    return {
+        login: (payload) => dispatch(doLogin(payload))
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Mine);

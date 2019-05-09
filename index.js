@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import {AppRegistry, YellowBox, BackHandler, ToastAndroid} from 'react-native';
 import App from './src';
 import { Provider } from 'react-redux';
-import configureStore from './src/store';
+import store from './src/store';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
-const store = configureStore();
 
 class myApp extends Component {
   componentDidMount() {

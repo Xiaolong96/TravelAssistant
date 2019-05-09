@@ -3,10 +3,11 @@ import { Text, View, StyleSheet, StatusBar, FlatList, Image, TouchableNativeFeed
   RefreshControl, Alert, TouchableWithoutFeedback, BackHandler, ToastAndroid, ActivityIndicator } from 'react-native';
 import Permissions from 'react-native-permissions'
 import Toast, {DURATION} from 'react-native-easy-toast';
-import * as constants from '../constants/index'
+import * as constants from '../constants/index';
 import Icon from "react-native-vector-icons/Ionicons";
 import ScenicSpotItem from "./ScenicSpotItem";
 import * as request from "../fetch/index"
+import httpUrl from '../constants/httpUrl';
 
 class Home extends Component {
   constructor(props) {
@@ -127,8 +128,7 @@ class Home extends Component {
    * 获取景点信息
    */
   async getScenicSpotInfo(key) {
-    const url = 'http://route.showapi.com/1681-1';
-    // const url = 'http://localhost:8081/src/mock/scene.json';
+    const url = httpUrl.SCENE;
     const data = {
       showapi_timestamp: "",
       showapi_appid: '91427', //这里需要改成自己的appid
@@ -138,7 +138,7 @@ class Home extends Component {
       pageSize:"100"
     };
     this.setState({loading: true});
-    request.postData(url, data)
+    request.getData(url, data)
     .then((res) => {
       this.setState({loading: false});
       // alert('景点' + JSON.stringify(res));
@@ -164,9 +164,7 @@ class Home extends Component {
     if(city.charAt(city.length - 1) === '市') {
       city = city.substr(0, city.length - 1);
     }
-    const url = "https://www.tianqiapi.com/api/";
-    // const url = "http://apis.juhe.cn/simpleWeather/query";
-    // const url = 'http://localhost:8081/src/mock/weather.json';
+    const url = httpUrl.WEATHER;
     const data = {
         city: city,
         // key: "ea784431e1695faf0d8b886d151c964a"
@@ -203,8 +201,7 @@ class Home extends Component {
 
   // 根据坐标转换成城市,逆地理编码
   inverseGeocoding(location) {
-    const url = 'http://api.map.baidu.com/geocoder/v2/';
-    // const url = 'http://localhost:8081/src/mock/coordinate.json';
+    const url = httpUrl.COORDINATE;
     const data = {
         location: location,
         ak: "9lRiOAAuQeyvTckpRh88eRGhgGlvDnU1",
@@ -212,6 +209,9 @@ class Home extends Component {
     };
     request.getData(url, data)
     .then((res) => {
+        if(!res) {
+          return;
+        }
         if(res.status === 0) {
             this.setState({city: res.result.addressComponent.city});
             setTimeout(() => {

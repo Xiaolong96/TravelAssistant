@@ -33,6 +33,21 @@ public class MyReactActivity extends ReactActivity {
       };
     }
 
+//    class MyreactDelegate extends ReactActivityDelegate {
+//
+//        public MyreactDelegate(Activity activity, @Nullable String mainComponentName) {
+//            super(activity, mainComponentName);
+//        }
+//        @Nullable
+//        @Override
+//        protected Bundle getLaunchOptions() {
+//            Bundle bundle = new Bundle();
+//            bundle.putString("fromtag", "C");
+//            bundle.putString("data3", "android传递的初始化参数");
+//            return bundle;
+//        }
+//    }
+
 //    public void onBackPressed() {
 //        doubleBackQuit();
 //    }

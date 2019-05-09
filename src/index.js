@@ -16,6 +16,7 @@ import Search from "./components/Search"
 import ScenicSpotDetail from "./components/ScenicSpotDetail"
 import Map from './components/Map'
 import MyCollection from './components/MyCollection'
+import Setting from './components/Setting'
 
 const BottomTab = createBottomTabNavigator({
   Home: {
@@ -101,7 +102,13 @@ const MyApp = createStackNavigator({
     navigationOptions: {
       header: null
     }
-  }
+  },
+  Setting: {
+    screen: Setting,
+    navigationOptions: {
+      header: null
+    }
+  },
 }, {
     headerMode: 'screen',
     // headerMode: 'none',

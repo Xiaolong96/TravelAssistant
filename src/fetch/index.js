@@ -1,4 +1,4 @@
-export async function postData(url, data) {
+export async function postData(url, data = {}) {
     try {
         let response = await fetch(url, {
           method: 'POST',
@@ -15,7 +15,7 @@ export async function postData(url, data) {
       }
 }
 
-export async function getData(url, data) {
+export async function getData(url, data = {}) {
     try {
         let response = await fetch(url + '?' + formatData(data), {
           method: 'GET',
@@ -23,10 +23,14 @@ export async function getData(url, data) {
         let responseJson = await response.json();
         return responseJson;
       } catch (error) {
+        alert(error);
         console.error(error);
       }
 }
 function formatData(obj) {
+    if(JSON.stringify(obj) === '{}') {
+      return '';
+    }
     let res = '';
     let keyArr = Object.keys(obj);
     keyArr.forEach((item) => {
