@@ -29,6 +29,8 @@ public class UserRes {
         private Long createTime;
 
         private Long updateTime;
+
+        private String token;
     }
 
     public int getStatus() {

@@ -2,6 +2,7 @@ export async function postData(url, data = {}) {
     try {
         let response = await fetch(url, {
           method: 'POST',
+          credentials:'include',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
           },
@@ -19,6 +20,7 @@ export async function getData(url, data = {}) {
     try {
         let response = await fetch(url + '?' + formatData(data), {
           method: 'GET',
+          credentials:'include'
         });
         let responseJson = await response.json();
         return responseJson;

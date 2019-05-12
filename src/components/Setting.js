@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, StatusBar, TouchableWithoutFeedback, NativeModu
 import * as constants from '../constants/index';
 import httpUrl from '../constants/httpUrl';
 import * as request from "../fetch/index"
+// import DeviceStorage from '../utils/DeviceStorage';
 
 import TitleBar from '../common/TitleBar';
 
@@ -46,13 +47,10 @@ class Setting extends Component {
       this.setState({loading: false});
       // alert(JSON.stringify(res))
       if(res.status == 0) {
-        if(store.getState().userInfo.username){
-          store.dispatch(doLogout());
-          ToastAndroid.show('注销成功', 1000);
-        } else {
-          ToastAndroid.show('未登录', 1000);
-        }
-
+        store.dispatch(doLogout());
+        this.props.navigation.goBack();
+        // DeviceStorage.clear();
+        ToastAndroid.show(res.msg, 1000);
       } else {
         ToastAndroid.show(res.msg, 1000);
       }
@@ -60,6 +58,7 @@ class Setting extends Component {
   }
 
   render() {
+    const userInfo = store.getState().userInfo;
     return (
         <View style={styles.container}>
             <TitleBar title="设置" callback={() => this.props.navigation.goBack()}/>
@@ -72,7 +71,10 @@ class Setting extends Component {
             <TouchableWithoutFeedback
                 onPress={this.logout.bind(this)}>
                 <View style={styles.item}>
-                    <Text>退出登录</Text>
+                    <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'flex-end'}}>
+                      <Text style={{color: 'red'}}>退出登录</Text>
+                      <Text style={{color: constants.GRAY_DARK, fontSize: 12}}>{`  ( ${userInfo.username? userInfo.username : '未登录'} )`}</Text>
+                    </View>
                 </View>
             </TouchableWithoutFeedback>
             {this.state.loading && 

@@ -152,6 +152,7 @@ public class LoginActivity extends BaseActivity  {
                     WritableMap event = Arguments.createMap();
                     //传递的参数
                     event.putString("userRes",content);
+                    event.putString("password",mInputPassword.getInputStr());
                     OpenNativeModule.sendEventToRn("LoginSuccess", event);
                     Intent intent = new Intent(LoginActivity.this, MyReactActivity.class);
                     startActivity(intent);

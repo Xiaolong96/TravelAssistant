@@ -10,3 +10,5 @@ export const GRAY_LIGHT = '#EEEEEE'
 export const GRAY_LIGHTER = '#F3F3F3'
 
 export const BLUE_LIGHT = '#00B3FF'
+
+export const GREEN = '#07C160'

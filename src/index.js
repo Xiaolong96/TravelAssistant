@@ -17,6 +17,9 @@ import ScenicSpotDetail from "./components/ScenicSpotDetail"
 import Map from './components/Map'
 import MyCollection from './components/MyCollection'
 import Setting from './components/Setting'
+import EditUserInfo from './components/EditUserInfo'
+import EditText from './components/EditText'
+import UpdatePassword from './components/UpdatePassword'
 
 const BottomTab = createBottomTabNavigator({
   Home: {
@@ -109,6 +112,24 @@ const MyApp = createStackNavigator({
       header: null
     }
   },
+  EditUserInfo: {
+    screen: EditUserInfo,
+    navigationOptions: {
+      header: null
+    }
+  },
+  EditText: {
+    screen: EditText,
+    navigationOptions: {
+      header: null
+    }
+  },
+  UpdatePassword: {
+    screen: UpdatePassword,
+    navigationOptions: {
+      header: null
+    }
+  }
 }, {
     headerMode: 'screen',
     // headerMode: 'none',

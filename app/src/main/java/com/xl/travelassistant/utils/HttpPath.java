@@ -7,4 +7,12 @@ public class HttpPath {
 
         return IP+"user/login.do";
     }
+    public static String getUserRegisterPath(){
+
+        return IP+"user/register.do";
+    }
+    public static String getResetPasswordPath(){
+
+        return IP+"user/forget_reset_password.do";
+    }
 }

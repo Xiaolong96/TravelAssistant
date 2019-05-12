@@ -5,8 +5,10 @@ import { connect } from 'react-redux';
 import { doLogin } from '../store/actions/login';
 
 import ListItem from "../common/ListItem";
-
+import * as request from "../fetch/index"
 import * as constants from '../constants/index';
+// import DeviceStorage from '../utils/DeviceStorage';
+import httpUrl from '../constants/httpUrl';
 
 import Icon from "react-native-vector-icons/Ionicons";
 import AntDesignIcon from "react-native-vector-icons/AntDesign";
@@ -36,12 +38,14 @@ class Mine extends Component {
   }
 
   componentDidMount() {
+    // 根据 cookie中的sessionID获取用户信息
+    this.getUserInfo();
     this.emitListener = DeviceEventEmitter.addListener('LoginSuccess', (e) => {
       setTimeout(() => {
         res = JSON.parse(e.userRes);
         gUserData = res.data;
-        // alert(JSON.stringify(gUserData))
-        // this.props.login(gUserData);
+        gUserData.password = e.password;
+        this.login();
       }, 500);
     });
     this._navListener = this.props.navigation.addListener('didFocus', () => {
@@ -49,11 +53,18 @@ class Mine extends Component {
       StatusBar.setTranslucent(true);
       StatusBar.setHidden(false, false);
       StatusBar.setBackgroundColor('transparent', false);
-      if(JSON.stringify(gUserData) !== '{}') {
-        this.props.login(gUserData);
-        gUserData = {};
-        alert(JSON.stringify(store.getState()))
-      }
+      // if(JSON.stringify(gUserData) !== '{}') {
+      //   this.props.login(gUserData);
+      //   DeviceStorage.save('id', gUserData.id);
+      //   DeviceStorage.save('phone', gUserData.phone);
+      //   DeviceStorage.save('username', gUserData.username);
+      //   DeviceStorage.save('createTime', gUserData.createTime);
+      //   DeviceStorage.save('updateTime', gUserData.updateTime);
+      //   DeviceStorage.save('token', gUserData.token);
+      //   alert("token: "+gUserData.token)
+      //   gUserData = {};
+        // alert(JSON.stringify(store.getState()))
+      // }
       // this.backHandler = BackHandler.addEventListener('hardwareBackPress', this.onBackAndroid);
     });
   }
@@ -61,6 +72,39 @@ class Mine extends Component {
   componentWillUnmount() {
     this._navListener.remove();
     this.emitListener.remove();
+  }
+
+  login() {
+    const url = httpUrl.LOGIN;
+    const data = {
+      phone: gUserData.phone,
+      password: gUserData.password,
+    }
+    // alert(JSON.stringify(data))
+    request.postData(url, data)
+    .then((res) => {
+      // alert(JSON.stringify(res))
+      if(res.status == 0) {
+        this.props.login(res.data);
+      } else {
+        ToastAndroid.show(res.msg, 1000);
+      }
+    })
+  }
+
+  getUserInfo() {
+    const url = httpUrl.GET_INFORMATION;
+    request.postData(url)
+    .then((res) => {
+      if(res.status == 0) {
+        this.props.login(res.data);
+      } else if(res.status == 10) {
+        nativeModule.openNativeVC();
+      }
+       else {
+        ToastAndroid.show(res.msg, 1000);
+      }
+    })
   }
 
   onJumpLogin() {
@@ -91,6 +135,15 @@ class Mine extends Component {
       case 0:
         Linking.openURL('tel:17806266949');
         break;
+    }
+  }
+
+  onEditUserInfoPress() {
+    const {userInfo, navigation} = this.props;
+    if(userInfo.username) {
+      navigation.navigate('EditUserInfo');
+    } else {
+      nativeModule.openNativeVC();
     }
   }
 
@@ -129,7 +182,7 @@ class Mine extends Component {
           </View>
           <View style={styles.funcRow}>
             <TouchableWithoutFeedback
-            onPress={() => {alert('正在开发中')}}
+            onPress={this.onEditUserInfoPress.bind(this)}
             >
               <View style={{height: 70, alignItems: 'center', justifyContent: 'center'}}>
                 <AntDesignIcon name="edit" size={24} color='#50AD6B' />

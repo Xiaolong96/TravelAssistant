@@ -5,24 +5,47 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.gyf.barlibrary.ImmersionBar;
 import com.xl.travelassistant.R;
 import com.xl.travelassistant.annotation.SingleClick;
+import com.xl.travelassistant.bean.UserRes;
 import com.xl.travelassistant.utils.CountDownTimerUtils;
+import com.xl.travelassistant.utils.HttpPath;
+import com.xl.travelassistant.utils.ToastUtil;
 import com.xl.travelassistant.utils.UserUtils;
 import com.xl.travelassistant.views.InputView;
 
+import java.io.IOException;
+import java.net.SocketTimeoutException;
+import java.util.concurrent.TimeUnit;
+
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class ResetPasswordActivity extends BaseActivity {
+    private static final String TAG = "ResetPasswordActivity";
     private InputView mInputRegPhone, mInputRegPassword ,mInputCode;
     private TextView mTvCode;
     private EventHandler eventHandler;
+    private int serversLoadTimes =0;
+    private static final int maxLoadTimes =3;
+    private OkHttpClient client = new OkHttpClient.Builder()
+            .connectTimeout(20, TimeUnit.SECONDS)//设置连接超时时间
+            .readTimeout(20, TimeUnit.SECONDS)//设置读取超时时间
+            .build();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,9 +118,54 @@ public class ResetPasswordActivity extends BaseActivity {
                         } else if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
                             if (result == SMSSDK.RESULT_COMPLETE) {
                                 // TODO 处理验证码验证通过的结果
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                startActivity(intent);
-                                finish();
+                                serversLoadTimes = 0;
+                                RequestBody requestBody =
+                                        new FormBody.Builder()
+                                                .add("phone", mInputRegPhone.getInputStr())
+                                                .add("passwordNew", mInputRegPassword.getInputStr())
+                                                .build();
+                                Log.e(TAG, HttpPath.getResetPasswordPath());
+                                Request req = new Request.Builder().url(HttpPath.getResetPasswordPath()).post(requestBody).build();
+                                Call call = client.newCall(req);
+                                call.enqueue(new Callback() {
+                                    @Override
+                                    public void onFailure(Call call, IOException e) {
+                                        //失败回调
+                                        Log.e(TAG, "onFailure: " + e.getMessage());
+                                        if (e instanceof SocketTimeoutException && serversLoadTimes < maxLoadTimes)//如果超时并未超过指定次数，则重新连接
+                                        {
+                                            serversLoadTimes++;
+                                            Log.e(TAG, "Reconnect: " + serversLoadTimes + " times");
+                                            client.newCall(call.request()).enqueue(this);
+                                        } else {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onResponse(Call call, Response response) throws IOException {
+                                        String content = response.body().string();
+                                        Log.e(TAG, "onResponse: " + content);
+                                        //使用gson来获取数据并且进行操作
+                                        Gson gson = new Gson();
+                                        //序列化
+                                        UserRes userRes = gson.fromJson(content, UserRes.class);
+                                        Log.e(TAG, "userRes: ");
+                                        int status = userRes.getStatus();
+                                        String msg = userRes.getMsg();
+                                        Log.e(TAG, "status: " + status);
+                                        Log.e(TAG, "msg: " + msg);
+                                        if (status == 0) {
+                                            ToastUtil.showToast(ResetPasswordActivity.this, "密码重置成功，请登陆");
+                                            Intent intent = new Intent(ResetPasswordActivity.this, LoginActivity.class);
+                                            startActivity(intent);
+                                            ResetPasswordActivity.this.finish();
+                                        } else {
+                                            ToastUtil.showToast(ResetPasswordActivity.this, msg);
+                                        }
+                                    }
+                                });
                             } else {
                                 // TODO 处理错误的结果
                                 Toast.makeText(getApplicationContext(),"验证码输入错误", Toast.LENGTH_LONG).show();

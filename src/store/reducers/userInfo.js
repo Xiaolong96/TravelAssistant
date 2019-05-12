@@ -18,6 +18,12 @@ const userInfo = (state = initialState, action) => {
     case types.LOGOUT: {
       return {}
     }
+    case types.UPDATE: {
+      return {
+        ...state,
+        ...action.payload
+      }
+    }
     default:
       return state
   }
