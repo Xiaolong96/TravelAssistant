@@ -11,6 +11,7 @@ import com.facebook.soloader.SoLoader;
 import com.horcrux.svg.SvgPackage;
 import com.mob.MobSDK;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.xl.travelassistant.utils.OpenNativePackage;
 
@@ -34,8 +35,9 @@ public class MyApplication extends Application implements ReactApplication {
                     new RNGestureHandlerPackage(),
                     new VectorIconsPackage(),
                     new SvgPackage(),
-                    new AMap3DPackage()
-                    );
+                    new AMap3DPackage(),
+                    new PickerPackage()
+            );
         }
         // 这是需要添加的
         @Override

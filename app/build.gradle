@@ -34,6 +34,8 @@ android {
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        vectorDrawables.useSupportLibrary = true
+
     }
     buildTypes {
         release {
@@ -95,4 +97,5 @@ dependencies {
     implementation project(':react-native-amap3d')
     implementation("com.squareup.okhttp3:okhttp:3.14.1")
     implementation 'com.google.code.gson:gson:2.8.5'
+    implementation project(':react-native-image-crop-picker')
 }

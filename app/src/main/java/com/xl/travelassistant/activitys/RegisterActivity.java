@@ -124,7 +124,7 @@ public class RegisterActivity extends BaseActivity {
                                         new FormBody.Builder()
                                                 .add("phone", mInputRegPhone.getInputStr())
                                                 .add("password", mInputRegPassword.getInputStr())
-                                                .add("username", UUID.randomUUID().toString().replace("-", ""))
+                                                .add("username", "User_" + UUID.randomUUID().toString().replace("-", ""))
                                                 .build();
                                 Log.e(TAG, HttpPath.getUserRegisterPath());
                                 Request req = new Request.Builder().url(HttpPath.getUserRegisterPath()).post(requestBody).build();

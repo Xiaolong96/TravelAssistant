@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, StatusBar, ToastAndroid, TouchableWithoutFeedback,
- NativeModules, FlatList, Linking, BackHandler, DeviceEventEmitter } from 'react-native';
+ NativeModules, FlatList, Linking, BackHandler, DeviceEventEmitter, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { doLogin } from '../store/actions/login';
 
@@ -160,6 +160,7 @@ class Mine extends Component {
 
   render() {
     const { userInfo } = this.props;
+    let avatar = require('../assets/img/avatar.png');
     return (
         <View style={styles.container}>
           <View>
@@ -171,7 +172,10 @@ class Mine extends Component {
             >
               <View style={{height: 90, width: 100, justifyContent: "space-between", alignItems: "center"}}>
                 <View style={[styles.userHead, {backgroundColor: "#fff"}]}>
-                  <Icon name="ios-person" size={30} color={constants.MAIN_COLOR_LIGHT} />
+                  {userInfo.username?
+                    <Image style={{height: 48, width: 48,}} source={avatar}/> :
+                    <Icon name="ios-person" size={30} color={constants.MAIN_COLOR_LIGHT} />
+                  }
                 </View>
                 <View style={styles.userInfoWrap}>
                   <Text numberOfLines={1} ellipsizeMode={'tail'} style={styles.userInfo}>{userInfo.username? userInfo.username : '请登录'}</Text>
@@ -280,7 +284,8 @@ const styles = StyleSheet.create({
     width: 48,
     borderRadius: 24,
     borderWidth: 2,
-    borderColor: constants.GRAY_LIGHTER
+    borderColor: constants.GRAY_LIGHTER,
+    overflow: 'hidden',
   },
   userInfoWrap: {
     justifyContent: "center",

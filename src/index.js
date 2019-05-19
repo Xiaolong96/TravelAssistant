@@ -20,6 +20,8 @@ import Setting from './components/Setting'
 import EditUserInfo from './components/EditUserInfo'
 import EditText from './components/EditText'
 import UpdatePassword from './components/UpdatePassword'
+import TravelNoteDetail from './components/TravelNoteDetail'
+import PublishNote from './components/PublishNote'
 
 const BottomTab = createBottomTabNavigator({
   Home: {
@@ -129,7 +131,19 @@ const MyApp = createStackNavigator({
     navigationOptions: {
       header: null
     }
-  }
+  },
+  TravelNoteDetail: {
+    screen: TravelNoteDetail,
+    navigationOptions: {
+      header: null
+    }
+  },
+  PublishNote: {
+    screen: PublishNote,
+    navigationOptions: {
+      header: null
+    }
+  },
 }, {
     headerMode: 'screen',
     // headerMode: 'none',
