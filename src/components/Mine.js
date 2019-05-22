@@ -149,9 +149,9 @@ class Mine extends Component {
 
   onListItemPress(title) {
     let obj = {
-      '我的收藏': 'MyCollection',
-      '我的消息': 'MyCollection',
-      '我的游记': 'MyCollection',
+      '我的评论': 'MyComments',
+      '我的消息': 'MyNews',
+      '我的游记': 'MyNotes',
       '设置': 'Setting',
     }
     // alert(obj[title]);
@@ -160,7 +160,12 @@ class Mine extends Component {
 
   render() {
     const { userInfo } = this.props;
-    let avatar = require('../assets/img/avatar.png');
+    let avatar;
+    if(userInfo.id%2 == 1) {
+      avatar = require('../assets/img/avatar1.png');
+    } else {
+      avatar = require('../assets/img/avatar2.png');
+    }
     return (
         <View style={styles.container}>
           <View>
@@ -194,7 +199,9 @@ class Mine extends Component {
               </View>
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback
-              onPress={() => {alert('正在开发中')}}
+              onPress={() => {
+                this.props.navigation.navigate('BrowseHistory');
+              }}
             >
               <View style={{height: 70, alignItems: 'center', justifyContent: 'center'}}>
                 <MaterialIcons name="history" size={24} color='#06BDD5' />
@@ -231,7 +238,7 @@ class Mine extends Component {
          <View style={{marginTop: 12, paddingBottom: 20, backgroundColor: '#fff'}}>
          <FlatList
             data={[
-              {title: '我的收藏', iconColor: '#2196F3', iconName: 'ios-star'},
+              {title: '我的评论', iconColor: '#2196F3', iconName: 'ios-text'},
               {title: '我的消息', iconColor: '#F44336', iconName: 'ios-notifications'},
               {title: '我的游记', iconColor: constants.MAIN_COLOR, iconName: 'ios-journal'},
               {title: '设置', iconColor: constants.GRAY_DARK, iconName: 'ios-settings'},

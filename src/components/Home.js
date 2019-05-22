@@ -138,7 +138,7 @@ class Home extends Component {
       pageSize:"100"
     };
     this.setState({loading: true});
-    request.getData(url, data)
+    request.postData(url, data)
     .then((res) => {
       this.setState({loading: false});
       // alert('景点' + JSON.stringify(res));

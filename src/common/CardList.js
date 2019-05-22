@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, FlatList } from 'react-native';
+import { Text, View, StyleSheet, Image, FlatList, TouchableWithoutFeedback } from 'react-native';
 import {BoxShadow} from 'react-native-shadow';
 import * as constants from '../constants/index'
 import Icon from "react-native-vector-icons/Ionicons";
@@ -22,20 +22,23 @@ class CardList extends Component {
   _renderItem = ({item, index}) => (
     <View style={{width: 140, marginVertical: 16, marginLeft: index=='0'? 16: 8, marginRight: index=='19'? 16: 8}}>
         <BoxShadow setting={Object.assign({}, shadowOpt, { width: 140, height: 210})}>
-              <View style={{borderRadius: 6, width: 140, overflow: 'hidden'}}>
-              <Image
-                style={{width: "100%", height: 120}}
-                source={item.photos.length? {uri: item.photos[0].url} : require('../assets/img/empty1.png')}
-              />
-              <View style={{backgroundColor: '#fff', height: 90}}>
-                <Text numberOfLines={1} ellipsizeMode={'tail'} style={styles.title}>{item.name}</Text>
-                <Rating rating={item.biz_ext.rating.constructor === Array? 0 : item.biz_ext.rating } />
-                <Text style={{paddingHorizontal: 8, paddingVertical: 3, fontSize: 12, color: constants.GRAY_DARK}}>
-                    {this.formatDistance(item.distance)}
-                </Text>
-              </View>
-              </View>
-            </BoxShadow>
+        <TouchableWithoutFeedback
+          onPress={() => {this.props.onjump(item)}}>
+          <View style={{borderRadius: 6, width: 140, overflow: 'hidden'}}>
+            <Image
+              style={{width: "100%", height: 120}}
+              source={item.photos.length? {uri: item.photos[0].url} : require('../assets/img/empty1.png')}
+            />
+            <View style={{backgroundColor: '#fff', height: 90}}>
+              <Text numberOfLines={1} ellipsizeMode={'tail'} style={styles.title}>{item.name}</Text>
+              <Rating rating={item.biz_ext.rating.constructor === Array? 0 : item.biz_ext.rating } />
+              <Text style={{paddingHorizontal: 8, paddingVertical: 3, fontSize: 12, color: constants.GRAY_DARK}}>
+                  {this.formatDistance(item.distance)}
+              </Text>
+            </View>
+            </View>
+        </TouchableWithoutFeedback>
+        </BoxShadow>
     </View>
   );
 

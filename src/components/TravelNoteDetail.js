@@ -6,6 +6,7 @@ import formatDate from '../utils/FormatDate';
 import httpUrl from '../constants/httpUrl';
 import * as request from "../fetch/index";
 import {BoxShadow} from 'react-native-shadow';
+import store from '../store/index';
 
 const {screenWidth} = Dimensions.get('window');
 
@@ -28,13 +29,20 @@ function RenderImages(props) {
 }
 
 function Comments(props) {
-  const comments = props.comments;
-  let renderComments = comments.reverse().map((item) => {
+  let comments = props.comments;
+  // alert(JSON.stringify(comments[0]))
+  let renderComments = comments.map((item) => {
+    let avatar;
+    if(item.username.length%2 == 1) {
+      avatar = require('../assets/img/avatar1.png');
+    } else {
+      avatar = require('../assets/img/avatar2.png');
+    }
     return (
       <View 
         key={item.id.toString()}
         style={{flexDirection: 'row', alignItems: 'flex-start', paddingHorizontal: 24, paddingTop: 16,}}>
-        <Image style={styles.avatar} source={require('../assets/img/avatar.png')}/>
+        <Image style={styles.avatar} source={avatar}/>
         <View style={{marginLeft: 12, paddingBottom: 16, borderBottomWidth: .2, borderBottomColor: constants.GRAY_LIGHTER, borderStyle: 'solid'}}>
             <Text numberOfLines={1} ellipsizeMode={'tail'} style={{color: constants.GRAY_DARKEST, fontSize: 14,}}>{ item.username }</Text>
             <Text style={{color: constants.GRAY_DARKEST, width: Dimensions.get('window').width-100}}>{item.comment}</Text>
@@ -105,6 +113,7 @@ class Strategy extends Component {
     });
     this.timer = setTimeout(() => {
       this.increaseBrowseTimes();
+      this.addBrowseRecord();
     }, 5000)
     this.getComment();
   }
@@ -129,6 +138,26 @@ class Strategy extends Component {
     })
   }
 
+  addBrowseRecord() {
+    const userId = store.getState().userInfo.id;
+    if(!userId) {
+      return;
+    }
+    const url = httpUrl.ADDBROWSERECORD;
+    const data = {
+      userId: userId,
+      noteId: this.props.navigation.state.params.travelNote.id,
+    }
+    request.postData(url, data)
+    .then((res) => {
+      if(res.status == 0) {
+        console.log(res.msg);
+      } else {
+        ToastAndroid.show(res.msg, 1000);
+      }
+    })
+  }
+
   getComment() {
     const url = httpUrl.GETCOMMENT;
     const data = {
@@ -137,7 +166,8 @@ class Strategy extends Component {
     request.postData(url, data)
     .then((res) => {
       if(res.status == 0) {
-        this.setState({comments: res.data});
+        // alert(JSON.stringify(res.data))
+        this.setState({comments: res.data.reverse()});
       } else {
         ToastAndroid.show(res.msg, 1000);
       }
@@ -169,8 +199,13 @@ class Strategy extends Component {
 
   render() {
     let screenWidth = Dimensions.get('window').width;
-    let avatar = require('../assets/img/avatar.png');
     let travelNote = this.props.navigation.state.params.travelNote;
+    let avatar;
+      if(travelNote.userId%2 == 1) {
+        avatar = require('../assets/img/avatar1.png');
+      } else {
+        avatar = require('../assets/img/avatar2.png');
+      }
     imagesItems = travelNote.images.map((item, index) => {
       let imgUri = httpUrl.IP + item.imgPath;
       return (

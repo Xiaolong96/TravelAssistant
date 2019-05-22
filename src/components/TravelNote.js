@@ -69,15 +69,20 @@ class TravelNote extends Component {
     }
 
   render() {
-    let avatar = require('../assets/img/avatar.png');
     const { travelNote } = this.props;
+    let avatar;
+    if(travelNote.userId%2 == 1) {
+      avatar = require('../assets/img/avatar1.png');
+    } else {
+      avatar = require('../assets/img/avatar2.png');
+    }
     return (
         <View style={styles.container}>
           <View style={{justifyContent: 'flex-start', height: "100%"}}>
             <Image style={styles.avatar} source={avatar}/>
           </View>
           <View style={{marginLeft: 8}}>
-            <Text numberOfLines={1} ellipsizeMode={'tail'} style={{color: constants.GRAY_DARKER, fontSize: 14, marginBottom: 14}}>{ travelNote.username }</Text>
+            <Text numberOfLines={1} ellipsizeMode={'tail'} style={{color: constants.GRAY_DARKEST, fontSize: 14, fontWeight: '800', marginBottom: 14}}>{ travelNote.username }</Text>
             <Text numberOfLines={3} ellipsizeMode={'tail'} style={{color: constants.GRAY_DARKEST, fontSize: 14, width: width -80, marginBottom: 12}}>{travelNote.noteTitle}</Text>
             <View style={{flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', marginBottom: 12}}>
               <RenderImages images={travelNote.images} />
@@ -108,6 +113,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: .2,
     borderColor: constants.GRAY,
     borderStyle: "solid",
+    backgroundColor: '#fff',
   },
   avatar: {
     width: 40,

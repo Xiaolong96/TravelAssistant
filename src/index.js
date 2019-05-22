@@ -15,13 +15,17 @@ import Mine from "./components/Mine"
 import Search from "./components/Search"
 import ScenicSpotDetail from "./components/ScenicSpotDetail"
 import Map from './components/Map'
-import MyCollection from './components/MyCollection'
+import MyComments from './components/MyComments'
 import Setting from './components/Setting'
 import EditUserInfo from './components/EditUserInfo'
 import EditText from './components/EditText'
 import UpdatePassword from './components/UpdatePassword'
 import TravelNoteDetail from './components/TravelNoteDetail'
 import PublishNote from './components/PublishNote'
+import MyNotes from './components/MyNotes'
+import MyNews from './components/MyNews'
+import BrowseHistory from './components/BrowseHistory'
+import AroundDetail from './components/AroundDetail'
 
 const BottomTab = createBottomTabNavigator({
   Home: {
@@ -102,8 +106,8 @@ const MyApp = createStackNavigator({
       header: null
     }
   },
-  MyCollection: {
-    screen: MyCollection,
+  MyComments: {
+    screen: MyComments,
     navigationOptions: {
       header: null
     }
@@ -144,6 +148,30 @@ const MyApp = createStackNavigator({
       header: null
     }
   },
+  MyNotes: {
+    screen: MyNotes,
+    navigationOptions: {
+      header: null
+    }
+  },
+  MyNews: {
+    screen: MyNews,
+    navigationOptions: {
+      header: null
+    }
+  },
+  BrowseHistory: {
+    screen: BrowseHistory,
+    navigationOptions: {
+      header: null
+    }
+  },
+  AroundDetail: {
+    screen: AroundDetail,
+    navigationOptions: {
+      header: null
+    }
+  }
 }, {
     headerMode: 'screen',
     // headerMode: 'none',

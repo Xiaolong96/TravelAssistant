@@ -1,7 +1,7 @@
 package com.xl.travelassistant.utils;
 
 public class HttpPath {
-    private static final String IP="http://172.26.75.93:8080/travel-assistant/";
+    private static final String IP="http://106.15.224.114:8080/xl/";
 
     public static String getUserLoginPath(){
 

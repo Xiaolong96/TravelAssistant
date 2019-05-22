@@ -9,6 +9,7 @@ import * as util from '../utils/index'
 import AlertSelected from '../common/AlertSelected'
 import CardList from '../common/CardList';
 import * as request from "../fetch/index"
+import httpUrl from '../constants/httpUrl';
 
 const selectedArr = ["高德地图", "百度地图"];
 
@@ -20,7 +21,7 @@ class ScenicSpotDetail extends Component {
     this.callbackSelected = this.callbackSelected.bind(this);
     this.state = {
       isShowTicket: false,
-      loading: true,
+      loading: false,
       hotelData: {},
       sceneData: {},
       foodData: {},
@@ -65,15 +66,15 @@ class ScenicSpotDetail extends Component {
 
   // 查询附近信息
   queryNearbyInfo(coord) {
-    // alert(coord);
-    // const url = 'http://localhost:8081/src/mock/hotel.json';
-    const url = 'https://restapi.amap.com/v3/place/around';
+    const url = httpUrl.AROUND;
     const data = {
       key: 'e9fa5a85f0dda1b4e0a123b3c97a0b05',
       keywords: '酒店|旅店',
       location: coord,
       radius: 10000,
       sortrule: 'weight',
+      page: 1,
+      offset: 15,// 每页不超过25条数据
       output: 'JSON'
     }
     let q1 = request.getData(url, data);
@@ -100,6 +101,30 @@ class ScenicSpotDetail extends Component {
         }
       })
     })
+    // request.getData(url, data)
+    //   .then((res) => {
+    //     if(res.status === '1') {
+    //       this.setState({hotelData: res.pois})
+    //     }else {
+    //       ToastAndroid.show(res.info, 1000);
+    //     }
+    //   })
+    // request.getData(url, Object.assign({}, data, {keywords: '景点', radius: 30000}))
+    //   .then((res) => {
+    //     if(res.status === '1') {
+    //       this.setState({sceneData: res.pois})
+    //     }else {
+    //       ToastAndroid.show(res.info, 1000);
+    //     }
+    //   })
+    // request.getData(url, Object.assign({}, data, {keywords: '美食'}))
+    //   .then((res) => {
+    //     if(res.status === '1') {
+    //       this.setState({foodData: res.pois})
+    //     }else {
+    //       ToastAndroid.show(res.info, 1000);
+    //     }
+    //   })
   }
 
   render() {
@@ -125,18 +150,18 @@ class ScenicSpotDetail extends Component {
               <View style={{flexDirection: 'row', paddingHorizontal: 16}}>
                 <View style={styles.separator}/>
                 <View style={{justifyContent: 'space-around', alignItems: 'center'}}>
-                  <Icon name="ios-star-outline" size={20} color={constants.MAIN_COLOR} />
+                  <Icon name="ios-star" size={20} color={constants.MAIN_COLOR} />
                   <Text style={{color: constants.MAIN_COLOR, fontSize: 12}}>收藏</Text>
                 </View>
               </View>
             </View>
             <Text style={{marginTop: 8}}>山雄奇秀拔，云雾缭绕，山中多飞泉瀑布和奇洞怪石，名胜古迹遍布，夏天气候凉爽宜人，是我国著名的旅游风景区和避暑疗养胜地，于1996年被列入“世界自然与文化遗产名录”。</Text>
             <View style={styles.intro}>
-              <Text style={{marginRight: 16}}>开放时间</Text>
+              <Text style={{marginRight: 16, fontWeight: '700'}}>开放时间</Text>
               <Text style={{flexWrap: 'wrap', width: Dimensions.get('window').width - 114}}>{this.scenicSpot.bizTime}</Text>
             </View>
             <View style={styles.intro}>
-              <Text style={{marginRight: 16}}>经纬度坐标</Text>
+              <Text style={{marginRight: 16, fontWeight: '700'}}>经纬度坐标</Text>
               <Text style={{flexWrap: 'wrap', width: Dimensions.get('window').width - 130}}>{this.scenicSpot.glocation}</Text>
             </View>
           </View>
@@ -233,25 +258,25 @@ class ScenicSpotDetail extends Component {
               </TouchableWithoutFeedback>
             </BoxShadow>
           </View>
-          <CardList cardTitle="附近旅店" data={this.state.hotelData} />
+          <CardList cardTitle="附近旅店" data={this.state.hotelData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
           <TouchableWithoutFeedback
-            onPress={() => {alert('正在开发中')}}
+            onPress={() => {alert('暂不提供更多信息')}}
           >
             <View style={{alignItems: 'center', justifyContent: 'center',padding: 12}}>
               <Text style={{color: constants.MAIN_COLOR, fontSize: 14}}>查看更多附近旅店 ></Text>
             </View>
           </TouchableWithoutFeedback>
-          <CardList cardTitle="附近景点" data={this.state.sceneData} />
+          <CardList cardTitle="附近景点" data={this.state.sceneData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
           <TouchableWithoutFeedback
-            onPress={() => {alert('正在开发中')}}
+            onPress={() => {alert('暂不提供更多信息')}}
           >
             <View style={{alignItems: 'center', justifyContent: 'center',padding: 12}}>
               <Text style={{color: constants.MAIN_COLOR, fontSize: 14}}>查看更多附近景点 ></Text>
             </View>
           </TouchableWithoutFeedback>
-          <CardList cardTitle="附近美食" data={this.state.foodData} />
+          <CardList cardTitle="附近美食" data={this.state.foodData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
           <TouchableWithoutFeedback
-            onPress={() => {alert('正在开发中')}}
+            onPress={() => {alert('暂不提供更多信息')}}
           >
             <View style={{alignItems: 'center', justifyContent: 'center',padding: 12}}>
               <Text style={{color: constants.MAIN_COLOR, fontSize: 14}}>查看更多附近美食 ></Text>
