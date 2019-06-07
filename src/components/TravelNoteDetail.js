@@ -32,12 +32,7 @@ function Comments(props) {
   let comments = props.comments;
   // alert(JSON.stringify(comments[0]))
   let renderComments = comments.map((item) => {
-    let avatar;
-    if(item.username.length%2 == 1) {
-      avatar = require('../assets/img/avatar1.png');
-    } else {
-      avatar = require('../assets/img/avatar2.png');
-    }
+    let avatar = require('../assets/img/avatar1.png');
     return (
       <View 
         key={item.id.toString()}
@@ -200,12 +195,7 @@ class Strategy extends Component {
   render() {
     let screenWidth = Dimensions.get('window').width;
     let travelNote = this.props.navigation.state.params.travelNote;
-    let avatar;
-      if(travelNote.userId%2 == 1) {
-        avatar = require('../assets/img/avatar1.png');
-      } else {
-        avatar = require('../assets/img/avatar2.png');
-      }
+    let avatar = require('../assets/img/avatar1.png');
     imagesItems = travelNote.images.map((item, index) => {
       let imgUri = httpUrl.IP + item.imgPath;
       return (

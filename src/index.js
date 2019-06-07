@@ -26,6 +26,7 @@ import MyNotes from './components/MyNotes'
 import MyNews from './components/MyNews'
 import BrowseHistory from './components/BrowseHistory'
 import AroundDetail from './components/AroundDetail'
+import WeatherDetail from './components/WeatherDetail'
 
 const BottomTab = createBottomTabNavigator({
   Home: {
@@ -168,6 +169,12 @@ const MyApp = createStackNavigator({
   },
   AroundDetail: {
     screen: AroundDetail,
+    navigationOptions: {
+      header: null
+    }
+  },
+  WeatherDetail: {
+    screen: WeatherDetail,
     navigationOptions: {
       header: null
     }

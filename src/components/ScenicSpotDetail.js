@@ -22,9 +22,12 @@ class ScenicSpotDetail extends Component {
     this.state = {
       isShowTicket: false,
       loading: false,
-      hotelData: {},
-      sceneData: {},
-      foodData: {},
+      AroundInfo: {
+        hotelData: [],
+        sceneData: [],
+        foodData: [],
+      },
+      weather: {},
     };
   }
 
@@ -43,6 +46,36 @@ class ScenicSpotDetail extends Component {
     });
     // this.scenicSpot = this.props.navigation.state.params.scenicSpot;
     this.queryNearbyInfo(this.location.split(',').reverse().join(','));
+    this.getWeatherInfo(this.scenicSpot.blocation);
+  }
+
+  getWeatherInfo(location) {
+    const url = httpUrl.COORDINATE;
+    const data = {
+        location: location,
+        ak: "9lRiOAAuQeyvTckpRh88eRGhgGlvDnU1",
+        output: 'json'
+    };
+    request.getData(url, data)
+    .then((res) => {
+        if(!res) {
+          return;
+        }
+        if(res.status === 0) {
+          let district = res.result.addressComponent.district
+          district = district.substr(0, district.length - 1);
+          const weaData = {
+              city: district,
+              version: 'v1',
+          };
+          request.getData(httpUrl.WEATHER, weaData)
+          .then((res) => {
+            this.setState({weather: res});
+          })
+        } else {
+          // this.refs.toast.show('天气查询失败：' + res.status, DURATION.LENGTH_LONG);
+        }
+    })
   }
 
   FormatCoordinate(coord) {
@@ -81,25 +114,36 @@ class ScenicSpotDetail extends Component {
     let q2 = request.getData(url, Object.assign({}, data, {keywords: '景点', radius: 30000}));
     let q3 = request.getData(url, Object.assign({}, data, {keywords: '美食'}));
     this.setState({loading: true});
+    let hotelData,sceneData,foodData;
     Promise.all([q1, q2, q3]).then((res) => {
       this.setState({loading: false});
       res.forEach((item, index) => {
         if(item.status === '1') {
           switch(index.toString()) {
             case '0': 
-              this.setState({hotelData: item.pois});
+              hotelData = item.pois;
+              // this.setState({hotelData: item.pois});
               break;
             case '1': 
-              this.setState({sceneData: item.pois});
+              sceneData = item.pois;
+              // this.setState({sceneData: item.pois});
               break;
             case '2': 
-              this.setState({foodData: item.pois});
+              foodData = item.pois;
+              // this.setState({foodData: item.pois});
               break;
           }
         } else {
           ToastAndroid.show(item.info, 1000);
         }
       })
+      const AroundInfo = {
+        hotelData,
+        sceneData,
+        foodData,
+      }
+      this.setState({AroundInfo});
+      // alert(JSON.stringify(AroundInfo));
     })
     // request.getData(url, data)
     //   .then((res) => {
@@ -164,6 +208,20 @@ class ScenicSpotDetail extends Component {
               <Text style={{marginRight: 16, fontWeight: '700'}}>经纬度坐标</Text>
               <Text style={{flexWrap: 'wrap', width: Dimensions.get('window').width - 130}}>{this.scenicSpot.glocation}</Text>
             </View>
+            <View style={styles.intro}>
+              <Text style={{marginRight: 16, fontWeight: '700'}}>天气</Text>
+              <Text style={{flexWrap: 'wrap', width: Dimensions.get('window').width - 200}}>
+                {JSON.stringify(this.state.weather)=='{}'? '晴 25°C':this.state.weather.city + ' ' + this.state.weather.data[0].wea + ' ' + this.state.weather.data[0].tem}
+              </Text>
+              <View style={{position: 'absolute',right: 0,}}>
+              <TouchableWithoutFeedback
+              onPress = {() => {this.props.navigation.navigate('WeatherDetail',{weather: this.state.weather})}}>
+              <View style={styles.btn}>
+                <Text style={{color: constants.WHITE}}>详情</Text>
+              </View>
+            </TouchableWithoutFeedback>
+              </View>
+            </View>
           </View>
           <View style={{marginHorizontal: 12, paddingTop: 12}}>
             <BoxShadow setting={Object.assign({}, shadowOpt, { width: Dimensions.get('window').width - 24, height: this.state.isShowTicket? 40 + this.scenicSpot.dis_list.length * 60 : 40, border: 6})}>
@@ -221,7 +279,8 @@ class ScenicSpotDetail extends Component {
                 onPress={() => {this.props.navigation.navigate('Map', { coord: {
                   lat: this.FormatCoordinate(this.scenicSpot.glocation)[0],
                   lon: this.FormatCoordinate(this.scenicSpot.glocation)[1],
-                  name: this.scenicSpot.scenicName,}
+                  name: this.scenicSpot.scenicName,
+                }
                 })}}
               >
                 <View style={{borderRadius: 6, overflow: 'hidden'}}>
@@ -258,7 +317,7 @@ class ScenicSpotDetail extends Component {
               </TouchableWithoutFeedback>
             </BoxShadow>
           </View>
-          <CardList cardTitle="附近旅店" data={this.state.hotelData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
+          <CardList cardTitle="附近旅店" data={this.state.AroundInfo.hotelData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
           <TouchableWithoutFeedback
             onPress={() => {alert('暂不提供更多信息')}}
           >
@@ -266,7 +325,7 @@ class ScenicSpotDetail extends Component {
               <Text style={{color: constants.MAIN_COLOR, fontSize: 14}}>查看更多附近旅店 ></Text>
             </View>
           </TouchableWithoutFeedback>
-          <CardList cardTitle="附近景点" data={this.state.sceneData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
+          <CardList cardTitle="附近景点" data={this.state.AroundInfo.sceneData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
           <TouchableWithoutFeedback
             onPress={() => {alert('暂不提供更多信息')}}
           >
@@ -274,7 +333,7 @@ class ScenicSpotDetail extends Component {
               <Text style={{color: constants.MAIN_COLOR, fontSize: 14}}>查看更多附近景点 ></Text>
             </View>
           </TouchableWithoutFeedback>
-          <CardList cardTitle="附近美食" data={this.state.foodData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
+          <CardList cardTitle="附近美食" data={this.state.AroundInfo.foodData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
           <TouchableWithoutFeedback
             onPress={() => {alert('暂不提供更多信息')}}
           >
@@ -312,7 +371,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: constants.GRAY_LIGHTER,
-    paddingTop: 28,
+    paddingTop: 26,
     paddingBottom: 20
     // padding: 12,
   },
@@ -350,7 +409,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.9)'
-  }
+  },
+  btn: {
+    width: 50, 
+    height: 28, 
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 3,
+    backgroundColor: constants.GREEN,
+}
 })
 
 export default ScenicSpotDetail;

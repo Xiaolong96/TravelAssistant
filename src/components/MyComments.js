@@ -107,12 +107,7 @@ class MyNews extends Component {
 
   render() {
     const userInfo = store.getState().userInfo;
-    let avatar;
-    if(userInfo.id%2 == 1) {
-      avatar = require('../assets/img/avatar1.png');
-    } else {
-      avatar = require('../assets/img/avatar2.png');
-    }
+    let avatar = require('../assets/img/avatar1.png');
     return (
       <View style={styles.container}>
         <TitleBar title="我的评论" callback={() => this.props.navigation.goBack()}/>

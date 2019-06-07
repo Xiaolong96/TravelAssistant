@@ -70,12 +70,7 @@ class TravelNote extends Component {
 
   render() {
     const { travelNote } = this.props;
-    let avatar;
-    if(travelNote.userId%2 == 1) {
-      avatar = require('../assets/img/avatar1.png');
-    } else {
-      avatar = require('../assets/img/avatar2.png');
-    }
+    let avatar = require('../assets/img/avatar1.png');
     return (
         <View style={styles.container}>
           <View style={{justifyContent: 'flex-start', height: "100%"}}>

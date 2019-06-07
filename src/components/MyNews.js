@@ -154,12 +154,7 @@ class MyNews extends Component {
           }
           renderItem={({item}) => {
             let i = item;
-            let avatar;
-            if(i.username.length%2 == 1) {
-              avatar = require('../assets/img/avatar1.png');
-            } else {
-              avatar = require('../assets/img/avatar2.png');
-            }
+            let avatar = require('../assets/img/avatar1.png');
               return (
                 <TouchableWithoutFeedback
                   onPress={this.onNewPress.bind(this, item.noteId)}>
