@@ -319,7 +319,7 @@ class ScenicSpotDetail extends Component {
           </View>
           <CardList cardTitle="附近旅店" data={this.state.AroundInfo.hotelData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
           <TouchableWithoutFeedback
-            onPress={() => {alert('暂不提供更多信息')}}
+            onPress={() => {ToastAndroid.show('暂不提供更多信息', 1000)}}
           >
             <View style={{alignItems: 'center', justifyContent: 'center',padding: 12}}>
               <Text style={{color: constants.MAIN_COLOR, fontSize: 14}}>查看更多附近旅店 ></Text>
@@ -327,7 +327,7 @@ class ScenicSpotDetail extends Component {
           </TouchableWithoutFeedback>
           <CardList cardTitle="附近景点" data={this.state.AroundInfo.sceneData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
           <TouchableWithoutFeedback
-            onPress={() => {alert('暂不提供更多信息')}}
+            onPress={() => {ToastAndroid.show('暂不提供更多信息', 1000)}}
           >
             <View style={{alignItems: 'center', justifyContent: 'center',padding: 12}}>
               <Text style={{color: constants.MAIN_COLOR, fontSize: 14}}>查看更多附近景点 ></Text>
@@ -335,7 +335,7 @@ class ScenicSpotDetail extends Component {
           </TouchableWithoutFeedback>
           <CardList cardTitle="附近美食" data={this.state.AroundInfo.foodData} onjump={(item) => {this.props.navigation.navigate('AroundDetail', {aroundInfo: item})}}/>
           <TouchableWithoutFeedback
-            onPress={() => {alert('暂不提供更多信息')}}
+            onPress={() => {ToastAndroid.show('暂不提供更多信息', 1000)}}
           >
             <View style={{alignItems: 'center', justifyContent: 'center',padding: 12}}>
               <Text style={{color: constants.MAIN_COLOR, fontSize: 14}}>查看更多附近美食 ></Text>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextInput, FlatList, TouchableWithoutFeedback, RefreshControl } from 'react-native';
+import { Text, View, StyleSheet, TextInput, ToastAndroid,AsyncStorage, FlatList, TouchableWithoutFeedback, RefreshControl } from 'react-native';
 import * as constants from '../constants/index'
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -8,55 +8,100 @@ class Search extends Component {
     super(props);
     this.state = {
       searchText: '',
-      searchHistoryData: [{
-        id: '1',
-        text: '北京',
-      }, {
-        id: '2',
-        text: '庐山',
-      }, {
-        id: '3',
-        text: '宜春',
-      }, {
-        id: '4',
-        text: '杭州',
-      }, {
-        id: '5',
-        text: '三清山',
-      }],
+      searchHistoryData: [
+      //   {
+      //   id: '1',
+      //   text: '北京',
+      // }, {
+      //   id: '2',
+      //   text: '庐山',
+      // }, {
+      //   id: '3',
+      //   text: '宜春',
+      // }, {
+      //   id: '4',
+      //   text: '杭州',
+      // }, {
+      //   id: '5',
+      //   text: '三清山',
+      // }
+    ],
       loading: false,
       searchHotData: [{
         id: '1',
-        text: '北京',
+        text: '故宫',
       }, {
         id: '2',
-        text: '青岛',
+        text: '泰山',
       }, {
         id: '3',
-        text: '庐山',
+        text: '云南',
       }, {
         id: '4',
-        text: '拉萨',
+        text: '峨眉山',
       }, {
         id: '5',
-        text: '大理',
+        text: '布达拉宫',
+      }, {
+        id: '6',
+        text: '庐山',
       }],
     };
   }
 
   componentDidMount() {
     // alert(JSON.stringify(this.props.navigation.state));
+    this.getSearchData();
   }
 
   searchSubmit(searchText) {
     if(this.state.searchText) {
       // alert(searchText);
+      let searchHistoryData = this.state.searchHistoryData;
+      let flag = false;
+      for(let i=0, len=searchHistoryData.length;i<len;i++) {
+        if(searchHistoryData[i].text === searchText) {
+          flag = true;
+          break;
+        } 
+      }
+      if (!flag) {
+        searchHistoryData.push({id: searchHistoryData.length + 1,text: searchText})
+        this._storeData('searchHistoryData', JSON.stringify(searchHistoryData));
+      }
       this.props.navigation.navigate('Home', {searchText: searchText})
     }
   }
 
-  getSearchData() {
+ getSearchData() {
+   this._retrieveData('searchHistoryData').then((res) => {
+    //  alert(res)
+     if(res) {
+      this.setState({searchHistoryData: JSON.parse(res)});
+     }
+   })
+  }
 
+  _storeData = async (key, val) => {
+    try {
+      await AsyncStorage.setItem(key, val);
+    } catch (error) {
+      alert('失败 '+error);
+      // Error saving data
+    }
+  }
+
+  _retrieveData = async (key) => {
+    try {
+      const value = await AsyncStorage.getItem(key);
+      if (value !== null) {
+        // We have data!!
+        return value;
+      }
+     } catch (error) {
+      alert('失败 '+error);
+       // Error retrieving data
+     }
   }
 
   onSearchItemPress(text) {
@@ -67,7 +112,9 @@ class Search extends Component {
   }
 
   clearSearchRecord() {
-    alert('clear');
+    this.setState({searchHistoryData: []});
+    this._storeData('searchHistoryData', JSON.stringify([]));
+    ToastAndroid.show('搜索记录已清除', 1000);
   }
 
   render() {
@@ -125,7 +172,7 @@ class Search extends Component {
           />
         </View>
         <TouchableWithoutFeedback
-          onPress={this.clearSearchRecord}>
+          onPress={this.clearSearchRecord.bind(this)}>
           <View style={{alignItems: 'center',marginTop: 20}}>
             <Text style={{fontSize: 14, color: constants.MAIN_COLOR}}>
               清除搜索记录
