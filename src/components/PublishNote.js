@@ -148,8 +148,8 @@ class PublishNote extends Component {
         <View style={{height: 60 , marginHorizontal: 16, borderBottomWidth: .2, borderColor: constants.GRAY, borderStyle: 'solid'}}>
             <TextInput
                 style={{width: "100%", height: "100%", fontWeight: '500'}}
-                placeholder={'游记标题 (最多40字)'}
-                maxLength = {40}
+                placeholder={'游记标题 (最多50字)'}
+                maxLength = {50}
                 onChangeText={(noteTitle) => this.setState({noteTitle})}
                 value={this.state.noteTitle}
             />
@@ -165,9 +165,9 @@ class PublishNote extends Component {
             />
           </View>
         </View>
-        <View style={{marginHorizontal: 16, marginTop: 12}}>
+        <View style={{marginHorizontal: 16, marginTop: 12, paddingBottom: 120}}>
             <TextInput
-                style={{width: "100%", maxHeight: height - 200}}
+                style={{width: "100%", maxHeight: height - 280}}
                 placeholder={'写下你的游记'}
                 multiline = {true}
                 onChangeText={(noteBody) => this.setState({noteBody})}

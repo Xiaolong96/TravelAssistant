@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, StatusBar, TouchableWithoutFeedback, ToastAndroid, RefreshControl,
-  FlatList } from 'react-native';
+  FlatList, Alert } from 'react-native';
 import * as constants from '../constants/index';
 import httpUrl from '../constants/httpUrl';
 import * as request from "../fetch/index"
@@ -18,6 +18,7 @@ class MyNotes extends Component {
     this.state = {
       loading: false,
       travelNotes: [],
+      showTip: true,
     };
   }
 
@@ -49,11 +50,46 @@ class MyNotes extends Component {
     })
   }
 
+  handleLongPress(id, index) {
+    Alert.alert(
+      '提示',
+      '确认删除游记？',
+      [
+        {text: '取消', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: '确定', onPress: () => this.deleteTravelNote(id, index)},
+      ],
+      { cancelable: false }
+    )
+  }
+
+  deleteTravelNote(id, index) {
+    const url = httpUrl.DELETETRAVELNOTE;
+    const data = {
+      noteId: id,
+    }
+    request.postData(url, data)
+    .then((res) => {
+      if(res.status == 0) {
+        let travelNotes = this.state.travelNotes;
+        travelNotes.splice(index, 1);
+        this.setState({travelNotes});
+        ToastAndroid.show(res.msg, 1000);
+      } else {
+        ToastAndroid.show(res.msg, 1000);
+      }
+    })
+  }
+
 
   render() {
     return (
       <View style={styles.container}>
         <TitleBar title="我的游记" callback={() => this.props.navigation.goBack()}/>
+        <TouchableWithoutFeedback
+          onPress={() => {this.setState({showTip: false})}}>
+          <Text style={{width: "100%", height: 36, backgroundColor: "#FEEFB8", color: "#C78E56", fontSize: 14, paddingHorizontal: 3, borderRadius: 3, flex: 0, lineHeight: 36, textAlign: 'center', display: this.state.showTip?'flex':'none'}}>
+          长按可进行删除游记</Text>
+          </TouchableWithoutFeedback>
         <FlatList
           data={this.state.travelNotes}
           extraData={this.state}
@@ -68,10 +104,11 @@ class MyNotes extends Component {
               colors={[constants.MAIN_COLOR, "lightgreen", "skyblue"]}
             />
           }
-          renderItem={({item}) => {
+          renderItem={({item, index}) => {
             let i = item;
               return (
                 <TouchableWithoutFeedback
+                  onLongPress={this.handleLongPress.bind(this, item.id, index)}
                   onPress={() => this.props.navigation.navigate('TravelNoteDetail', {travelNote: i})}>
                   <View>
                     <TravelNote travelNote={i}/>

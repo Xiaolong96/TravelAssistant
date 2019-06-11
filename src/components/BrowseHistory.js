@@ -54,10 +54,14 @@ class BrowseHistory extends Component {
             request.postData(url, data)
             .then((res) => {
             if(res.status == 0) {
-              r[i].noteTitle = res.data.noteTitle;
+              if(JSON.stringify(res.data) == '{}') {
+                r[i].noteTitle = '游记不存在';
+              } else {
+                r[i].noteTitle = res.data.noteTitle;
+              }
               this.setState({record: r});
             } else {
-                ToastAndroid.show(res.msg, 1000);
+                // ToastAndroid.show(res.msg, 1000);
             }
             })
           })
@@ -81,7 +85,11 @@ class BrowseHistory extends Component {
     request.postData(url, data)
     .then((res) => {
       if(res.status == 0) {
-        this.props.navigation.navigate('TravelNoteDetail', {travelNote: res.data})
+        if(JSON.stringify(res.data) == '{}') {
+          ToastAndroid.show('游记不存在', 1000)
+        } else {
+          this.props.navigation.navigate('TravelNoteDetail', {travelNote: res.data})
+        }
         // alert(JSON.stringify(myNews));
       } else {
         ToastAndroid.show(res.msg, 1000);

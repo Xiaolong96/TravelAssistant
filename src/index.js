@@ -41,7 +41,7 @@ const BottomTab = createBottomTabNavigator({
   Strategy: {
     screen: Strategy,
     navigationOptions: {
-      tabBarLabel: '攻略',
+      tabBarLabel: '游记',
       tabBarIcon: ({ tintColor }) => (
         <Icon name="md-compass" size={20} color={tintColor} />
       ),

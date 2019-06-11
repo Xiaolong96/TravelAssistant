@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, StatusBar, Dimensions, ToastAndroid, RefreshControl,
-  FlatList, Image, TouchableWithoutFeedback } from 'react-native';
+  FlatList, Image, TouchableWithoutFeedback, Alert } from 'react-native';
 import * as constants from '../constants/index';
 import httpUrl from '../constants/httpUrl';
 import * as request from "../fetch/index"
@@ -17,6 +17,7 @@ class MyNews extends Component {
     this.state = {
       loading: false,
       news: [],
+      showTip: true,
     };
   }
 
@@ -59,6 +60,36 @@ class MyNews extends Component {
       if(res.status == 0) {
         this.props.navigation.navigate('TravelNoteDetail', {travelNote: res.data})
         // alert(JSON.stringify(myNews));
+      } else {
+        ToastAndroid.show(res.msg, 1000);
+      }
+    })
+  }
+
+  handleLongPress(id, index) {
+    Alert.alert(
+      '提示',
+      '确认删除评论？',
+      [
+        {text: '取消', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: '确定', onPress: () => this.deleteComment(id, index)},
+      ],
+      { cancelable: false }
+    )
+  }
+
+  deleteComment(id, index) {
+    const url = httpUrl.DELETECOMMENT;
+    const data = {
+      commentId: id,
+    }
+    request.postData(url, data)
+    .then((res) => {
+      if(res.status == 0) {
+        let news = this.state.news;
+        news.splice(index, 1);
+        this.setState({news});
+        ToastAndroid.show(res.msg, 1000);
       } else {
         ToastAndroid.show(res.msg, 1000);
       }
@@ -111,6 +142,11 @@ class MyNews extends Component {
     return (
       <View style={styles.container}>
         <TitleBar title="我的评论" callback={() => this.props.navigation.goBack()}/>
+          <TouchableWithoutFeedback
+          onPress={() => {this.setState({showTip: false})}}>
+          <Text style={{width: "100%", height: 36, backgroundColor: "#FEEFB8", color: "#C78E56", fontSize: 14, paddingHorizontal: 3, borderRadius: 3, flex: 0, lineHeight: 36, textAlign: 'center', display: this.state.showTip?'flex':'none'}}>
+          长按可进行删除评论</Text>
+          </TouchableWithoutFeedback>
         <FlatList
           data={this.state.news}
           extraData={this.state}
@@ -125,10 +161,11 @@ class MyNews extends Component {
               colors={[constants.MAIN_COLOR, "lightgreen", "skyblue"]}
             />
           }
-          renderItem={({item}) => {
+          renderItem={({item, index}) => {
             let i = item;
               return (
                 <TouchableWithoutFeedback
+                  onLongPress={this.handleLongPress.bind(this, item.id, index)}
                   onPress={this.onNewPress.bind(this, item.noteId)}>
                   <View 
                     style={{flexDirection: 'row', alignItems: 'flex-start', paddingHorizontal: 24, paddingTop: 16,}}>

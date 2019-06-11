@@ -37,6 +37,10 @@ export default {
 
     DELETEBROWSERECORD: IP + 'user/delete_browse_record.do',
 
+    DELETETRAVELNOTE: IP + 'note/delete_travel_note.do',
+
+    DELETECOMMENT: IP + 'note/delete_comment.do',
+
 
     AROUND: 'https://restapi.amap.com/v3/place/around',
     // AROUND: 'http://localhost:8081/src/mock/hotel.json',

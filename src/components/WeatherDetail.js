@@ -58,7 +58,7 @@ class WeatherDetail extends Component {
                 </View>
             </View>
             <View style={styles.totalbox}>
-                {weather.data.map((infor, i) => {
+                {weather.data.length !== 0&&weather.data.map((infor, i) => {
                     let weatherDiv =(
                         <View style={styles.list} key={"forecast-list" + i}>
                             <View style={styles.list1}>
